@@ -23,3 +23,9 @@ Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index'])->n
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::prefix('section-one')->group(function () {
+        Route::get('/', [App\Http\Controllers\SectionOneController::class, 'indexOne'])->name('indexOne');
+        Route::post('/add', [App\Http\Controllers\SectionOneController::class, 'storeOne'])->name('addOne');
+    });
+
