@@ -33,24 +33,18 @@ class SectionOneController extends Controller
         return response()->json(['message' => 'Store Data Berhasil!'], 201);
     }
 
-    public function updateEbook(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $ebook = SectionOne::find($id);
-        $ebook->update([
-            'source' => $request->source
+        $one = SectionOne::find($id);
+        $one->update([
+            'title' => $request->title,
+            'description' => $request->source
         ]);
-        $coverPath = null;
-        if ($request->hasFile('cover')) {
-            $coverPath = $request->file('cover')->store('cover-ebook', 'public');
-            $ebook->update([
-                'cover' => $coverPath,
-            ]);
-        };
-        $filePath = null;
-        if ($request->hasFile('file')) {
-            $filePath = $request->file('file')->store('file-ebook', 'public');
-            $ebook->update([
-                'file' => $filePath,
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('hero-section', 'public');
+            $one->update([
+                'image' => $imagePath,
             ]);
         };
 
@@ -59,10 +53,10 @@ class SectionOneController extends Controller
 
     public function destroy($id)
     {
-        $ebook = SectionOne::find($id);
+        $one = SectionOne::find($id);
 
-        $ebook->delete();
+        $one->delete();
 
-        return response()->json(['success' => 'Delete Ebook Successfully']);
+        return response()->json(['success' => 'Delete Successfully']);
     }
 }

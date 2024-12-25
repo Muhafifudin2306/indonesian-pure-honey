@@ -53,9 +53,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
                 <img src="assets-user/img/logo.png" alt="AgriCulture">
-                <!-- <h1 class="sitename">AgriCulture</h1>  -->
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -63,7 +61,6 @@
                     <li><a href="#hero" class="fw-bold">Home</a></li>
                     <li><a href="#services-2" class="fw-bold">Our Product</a></li>
                     <li><a href="#about" class="fw-bold">About Us</a></li>
-                    <!-- <li><a href="#testimonials" class="fw-bold">Testimonials</a></li> -->
                     <li><a href="#recent-posts" class="fw-bold">Blog</a></li>
                     <li><a href="#footer" class="fw-bold">Contact</a></li>
                 </ul>
@@ -81,50 +78,23 @@
             <div id="hero-carousel" class="carousel slide carousel-fade vh-100" data-bs-ride="carousel"
                 data-bs-interval="5000">
 
-                <div class="carousel-item active">
-                    <img src="assets-user/img/hero_1.jpg" alt="">
-                    <div class="carousel-container">
-                        <h2 align="center">The Best Supplier of Raw Honey From Indonesia</h2>
-                        <p align="center">We provide premium-quality raw honey, harvested from Indonesia's finest bee
-                            farms,
-                            delivering natural taste and health benefits globally.</p>
+                @php
+                    $isFirst = true;
+                @endphp
+
+                @foreach ($one as $item)
+                    <div class="carousel-item {{ $isFirst ? 'active' : '' }}">
+                        <img src="{{ Storage::url($item->image) }}" alt="">
+                        <div class="carousel-container">
+                            <h2 align="center">{{ $item->title }}</h2>
+                            <p align="center">{{ $item->description }}</p>
+                        </div>
                     </div>
-                </div><!-- End Carousel Item -->
 
-                <div class="carousel-item">
-                    <img src="assets-user/img/hero_2.jpg" alt="">
-                    <div class="carousel-container">
-                        <h2 align="center">Eco Friendly Bee Farming</h2>
-                        <p align="center">Sustainable and eco-friendly beekeeping, producing high-quality honey while
-                            caring for the
-                            environment.</p>
-                    </div>
-                </div><!-- End Carousel Item -->
-
-                <div class="carousel-item">
-                    <img src="assets-user/img/hero_3.jpg" alt="">
-                    <div class="carousel-container">
-                        <h2 align="center">Best Quality of Accacia Honey</h2>
-                        <!-- <p align="center">Delivering premium-grade acacia honey with unmatched purity and taste.</p> -->
-                        <p align="center">Experience the natural essence of pure, authentic acacia honey.</p>
-                    </div>
-                </div><!-- End Carousel Item -->
-
-                <!-- <div class="carousel-item">
-          <img src="assets-user/img/hero_4.jpg" alt="">
-          <div class="carousel-container">
-            <h2 align="center">The Purity of Original Acacia Honey</h2>
-            <p align="center">Experience the natural essence of pure, authentic acacia honey.</p>
-          </div>
-        </div>End Carousel Item -->
-
-                <!-- <div class="carousel-item">
-          <img src="assets-user/img/hero_5.jpg" alt="">
-          <div class="carousel-container">
-            <h2 align="center">Good Food For All</h2>
-            <p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </div>End Carousel Item -->
+                    @php
+                        $isFirst = false;
+                    @endphp
+                @endforeach
 
                 <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>

@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingPage');
+Route::post('/upload', [UploadController::class, 'store']);
+
 
 Auth::routes();
 
@@ -27,5 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::prefix('section-one')->group(function () {
         Route::get('/', [App\Http\Controllers\SectionOneController::class, 'indexOne'])->name('indexOne');
         Route::post('/add', [App\Http\Controllers\SectionOneController::class, 'storeOne'])->name('addOne');
+        Route::post('/update/{id}', [App\Http\Controllers\SectionOneController::class, 'update'])->name('updateOne');
+        Route::delete('/delete/{id}', [App\Http\Controllers\SectionOneController::class, 'destroy'])->name('deleteOne');
     });
 
