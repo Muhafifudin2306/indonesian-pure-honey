@@ -93,7 +93,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="content">Description</label>
-                            <textarea name="source" placeholder="Input your description" required></textarea>
+                            <textarea name="source" class="form-control" placeholder="Input your description" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -130,10 +130,10 @@
                                         class="form-control" name="title" required value="{{ $item->title }}">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="content-edit-{{ $item->id }}">Description</label>
+                                    <label for="source-{{ $item->edit }}">Description</label>
                                     <textarea name="source" class="form-control
                                         cols="30" rows="10"
-                                        placeholder="Input your description" required> {{ $item->description }}</textarea>
+                                        id="source-{{ $item->edit }}" placeholder="Input your description" required> {{ $item->description }}</textarea>
                                 </div>
                             </div>
                         </div>
