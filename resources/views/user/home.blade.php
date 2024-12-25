@@ -4,25 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title> Indonesian Pure Honey | Nature's Purest Boost for Your Health </title>
-    <meta name="description"
-        content="Indonesian Pure Honey is all about giving you a natural boost. Packed with pure goodness, our honey supports your immune system, digestion, and fights inflammation - all straight from nature. We're obsessed with quality, sustainability, and keeping it affordable, because we believe that taking care of your health should be simple, accessible, and real. Pure honey, pure vibes, pure you.
-  ">
-    <meta name="keywords"
-        content="Indonesian pure honey, natural honey, raw honey, organic honey, healthy honey, immune system support, digestive health, anti-inflammatory honey, sustainable honey, affordable honey, Acacia Honey, pure honey benefits, local honey Indonesia">
-
-    <!-- Favicons -->
+    <title> {{ $seoTitle }} </title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="keywords" content="{{ $seoKeyword }}">
     <link href="assets-user/img/favicon.png" rel="icon">
     <link href="assets-user/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
         rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -33,17 +24,7 @@
     <link href="assets-user/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets-user/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Main CSS File -->
     <link href="assets-user/css/main.css" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: AgriCulture
-  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -71,8 +52,6 @@
     </header>
 
     <main class="main">
-
-        <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
 
             <div id="hero-carousel" class="carousel slide carousel-fade vh-100" data-bs-ride="carousel"
@@ -108,7 +87,7 @@
 
             </div>
 
-        </section><!-- /Hero Section -->
+        </section>
         <section id="services-2" class="services-2 section" data-aos="fade-up">
             <!-- Section Title -->
             <h2 class="fw-bold text-center">

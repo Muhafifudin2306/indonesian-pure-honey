@@ -13,7 +13,7 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item {{ request()->routeIs('home') ? 'active' : '' }}"">
+        <li class="menu-item {{ request()->routeIs('home') ? 'active' : '' }}">
             <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -21,13 +21,19 @@
         </li>
 
         <!-- Layouts -->
-        <li class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }}">
+        <li
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
             </a>
 
             <ul class="menu-sub">
+                <li class="menu-item {{ request()->routeIs('indexSeo') ? 'active' : '' }}">
+                    <a href="{{ route('indexSeo') }}" class="menu-link">
+                        <div data-i18n="Without menu">SEO</div>
+                    </a>
+                </li>
                 <li class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }}">
                     <a href="{{ route('indexOne') }}" class="menu-link">
                         <div data-i18n="Without menu">Hero</div>
