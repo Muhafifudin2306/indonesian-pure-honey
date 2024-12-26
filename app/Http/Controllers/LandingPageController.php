@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Header;
 use App\Models\SectionOne;
 use App\Models\Seo;
 use Illuminate\Http\Request;
@@ -9,11 +10,19 @@ use Illuminate\Http\Request;
 class LandingPageController extends Controller
 {
     public function index(){
-        $one = SectionOne::latest()->get();
-        $seo = Seo::latest()->get();
         $seoTitle = Seo::where('section', 'title')->first()->content ?? null;
         $seoDescription = Seo::where('section', 'description')->first()->content ?? null;
         $seoKeyword = Seo::where('section', 'keyword')->first()->content ?? null;
-        return view('user.home', compact('one','seoTitle', 'seoDescription', 'seoKeyword'));
+        
+        $headerLogo = Header::where('section', 'logo')->first()->content ?? null;
+        $headerBackground = Header::where('section', 'background')->first()->content ?? null;
+        
+        $one = SectionOne::latest()->get();
+        
+        return view('user.home', compact(
+            'seoTitle', 'seoDescription', 'seoKeyword', 
+            'headerLogo', 'headerBackground',
+            'one'
+        ));
     }
 }

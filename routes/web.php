@@ -36,3 +36,8 @@ Route::prefix('seo')->group(function () {
     Route::post('/add', [App\Http\Controllers\SeoController::class, 'storeSeo'])->name('addSeo');
 });
 
+Route::prefix('header')->group(function () {
+    Route::get('/', [App\Http\Controllers\HeaderController::class, 'indexHeader'])->name('indexHeader');
+    Route::post('/add', [App\Http\Controllers\HeaderController::class, 'storeHeader'])->name('addHeader');
+});
+

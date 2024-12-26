@@ -22,7 +22,7 @@
 
         <!-- Layouts -->
         <li
-            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }}">
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -32,6 +32,11 @@
                 <li class="menu-item {{ request()->routeIs('indexSeo') ? 'active' : '' }}">
                     <a href="{{ route('indexSeo') }}" class="menu-link">
                         <div data-i18n="Without menu">SEO</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexHeader') ? 'active' : '' }}">
+                    <a href="{{ route('indexHeader') }}" class="menu-link">
+                        <div data-i18n="Without menu">Header</div>
                     </a>
                 </li>
                 <li class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }}">

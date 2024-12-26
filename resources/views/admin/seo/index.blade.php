@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-name', 'Dashboard Admin | Section One')
+@section('page-name', 'Dashboard Admin | SEO Setting')
 
 @section('content')
     <div class="left-content">

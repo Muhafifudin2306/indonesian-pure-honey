@@ -274,7 +274,7 @@
                         .then(response => response.json())
                         .then(data => {
                             Notiflix.Notify.success("Data berhasil diperbarui!", {
-                                timeout: 3000
+                                timeout: 10000
                             });
 
                             location.reload();

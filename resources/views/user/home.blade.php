@@ -30,11 +30,11 @@
 <body class="index-page">
 
     <header id="header" class="header d-flex align-items-center fixed-top"
-        style="background-image: url(assets-user/img/bg-navbar.png);background-size: cover;background-repeat: no-repeat;">
+        style="background-image: url('{{ Storage::url($headerBackground) }}'); background-size: cover; background-repeat: no-repeat;">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets-user/img/logo.png" alt="AgriCulture">
+                <img src="{{ Storage::url($headerLogo) }}" alt="AgriCulture">
             </a>
 
             <nav id="navmenu" class="navmenu">
