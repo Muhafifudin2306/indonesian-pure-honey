@@ -48,3 +48,10 @@ Route::prefix('contact')->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('deleteContact');
 });
 
+Route::prefix('sponsor')->group(function () {
+    Route::get('/', [App\Http\Controllers\SponsorController::class, 'indexSponsor'])->name('indexSponsor');
+    Route::post('/add', [App\Http\Controllers\SponsorController::class, 'storeSponsor'])->name('addSponsor');
+    Route::post('/update/{id}', [App\Http\Controllers\SponsorController::class, 'update'])->name('updateSponsor');
+    Route::delete('/delete/{id}', [App\Http\Controllers\SponsorController::class, 'destroy'])->name('deleteSponsor');
+});
+

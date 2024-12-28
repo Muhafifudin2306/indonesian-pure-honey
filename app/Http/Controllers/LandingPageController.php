@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Header;
 use App\Models\SectionOne;
 use App\Models\Seo;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -21,12 +22,17 @@ class LandingPageController extends Controller
         $one = SectionOne::latest()->get();
 
         $contact = Contact::latest()->get();
+
+
+
+        $sponsor = Sponsor::latest()->get();
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
             'headerLogo', 'headerBackground',
             'one',
-            'contact'
+            'contact',
+            'sponsor'
         ));
     }
 }

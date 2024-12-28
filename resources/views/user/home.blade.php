@@ -53,14 +53,9 @@
 
     <main class="main">
         <section id="hero" class="hero section dark-background">
-
             <div id="hero-carousel" class="carousel slide carousel-fade vh-100" data-bs-ride="carousel"
                 data-bs-interval="5000">
-
-                @php
-                    $isFirst = true;
-                @endphp
-
+                @php $isFirst = true; @endphp
                 @foreach ($one as $item)
                     <div class="carousel-item {{ $isFirst ? 'active' : '' }}">
                         <img src="{{ Storage::url($item->image) }}" alt="">
@@ -69,10 +64,7 @@
                             <p align="center">{{ $item->description }}</p>
                         </div>
                     </div>
-
-                    @php
-                        $isFirst = false;
-                    @endphp
+                    @php $isFirst = false; @endphp
                 @endforeach
 
                 <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
@@ -457,22 +449,12 @@
                 </div><!-- End Section Title -->
 
                 <div class="row">
-                    <div class="col-6 mb-3 col-md-3" data-aos="fade-up">
-                        <img class="w-100 object-fit-contain" height="150" src="./assets-user/img/kemendag.png"
-                            alt="">
-                    </div>
-                    <div class="col-6 mb-3 col-md-3" data-aos="fade-up">
-                        <img class="w-100 object-fit-contain" height="150" src="./assets-user/img/kemenkumham.png"
-                            alt="">
-                    </div>
-                    <div class="col-6 mb-3 col-md-3" data-aos="fade-up">
-                        <img class="w-100 object-fit-contain" height="150" src="./assets-user/img/bpom.png"
-                            alt="">
-                    </div>
-                    <div class="col-6 mb-3 col-md-3" data-aos="fade-up">
-                        <img class="w-100 object-fit-contain" height="150" src="./assets-user/img/halal.png"
-                            alt="">
-                    </div>
+                    @foreach ($sponsor as $item)
+                        <div class="col-6 mb-3 col-md-3" data-aos="fade-up">
+                            <img class="w-100 object-fit-contain" height="150"
+                                src="{{ Storage::url($item->image) }}" alt="">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section><!-- /About 3 Section -->
