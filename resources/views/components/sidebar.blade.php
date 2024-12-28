@@ -21,8 +21,8 @@
         </li>
 
         <!-- Layouts -->
-        <li class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }}"
-            {{ request()->routeIs('indexAbout') ? 'active' : '' }}">
+        <li
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -64,9 +64,9 @@
                         <div data-i18n="Fluid">Key Value</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
-                        <div data-i18n="Blank">Team</div>
+                <li class="menu-item {{ request()->routeIs('indexTeam') ? 'active' : '' }}">
+                    <a href="{{ route('indexTeam') }}" class="menu-link">
+                        <div data-i18n="Without menu">Team</div>
                     </a>
                 </li>
                 <li class="menu-item {{ request()->routeIs('indexSponsor') ? 'active' : '' }}">

@@ -8,6 +8,7 @@ use App\Models\Header;
 use App\Models\SectionOne;
 use App\Models\Seo;
 use App\Models\Sponsor;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -28,6 +29,8 @@ class LandingPageController extends Controller
         $aboutDescription = About::where('section', 'description')->first()->content ?? null;
         $aboutImage = About::where('section', 'image')->first()->content ?? null;
 
+        $team = Team::latest()->get();
+
         $sponsor = Sponsor::latest()->get();
         
         return view('user.home', compact(
@@ -36,7 +39,8 @@ class LandingPageController extends Controller
             'one',
             'contact',
             'sponsor',
-            'aboutTitle', 'aboutDescription', 'aboutImage'
+            'aboutTitle', 'aboutDescription', 'aboutImage',
+            'team'
         ));
     }
 }

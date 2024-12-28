@@ -279,8 +279,8 @@
         </section>
 
         <!-- Team Section -->
-        <section class="team-15 team section" id="team">
-            <div class="container section-title" data-aos="fade-up">
+        <section class="team-15 team section" id="team" data-aos="fade-up">
+            <div class="container section-title">
                 <h2 class="fw-bold">
                     <span class="text-gold-i">OUR</span>
                     TEAM
@@ -293,131 +293,80 @@
                     </div>
                 </div>
             </div><!-- End Section Title -->
-            <div class="content">
-                <div class="container">
-
-                    <div class="row mb-3">
-                        <div class="col-lg-3 col-6 mb-4" data-aos="fade-up">
-                            <div class="person">
-                                <figure>
-                                    <img src="assets-user/img/team/edi.jpeg" height="300" alt="Image"
-                                        class="w-100 object-fit-cover">
-                                    <div class="social">
-                                        <a href="#" target="_blank"><span class="bi bi-linkedin"></span></a>
-                                        <a href="https://www.instagram.com/edivictara?igsh=NGl5NmduZjJxem5i"
-                                            target="_blank"><span class="bi bi-instagram"></span></a>
-                                        <a href="#" target="_blank"><span class="bi bi-google"></span></a>
+            <div class="services-2">
+                <div class="services-carousel-wrap" data-aos="fade-up">
+                    <div class="container">
+                        <div class="swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 2000
+                          },
+                          "slidesPerView": "auto",
+                          "pagination": {
+                            "el": ".swiper-pagination",
+                            "clickable": true
+                          },
+                          "navigation": {
+                            "nextEl": ".js-custom-next",
+                            "prevEl": ".js-custom-prev"
+                          },
+                          "breakpoints": {
+                            "320": {
+                              "slidesPerView": 1,
+                              "spaceBetween": 40
+                            },
+                            "770": {
+                              "slidesPerView": 2,
+                              "spaceBetween": 40
+                            },
+                            "1200": {
+                              "slidesPerView": 4,
+                              "spaceBetween": 40
+                            }
+                          }
+                        }
+                      </script>
+                            <button class="navigation-prev js-custom-prev">
+                                <i class="bi bi-arrow-left-short"></i>
+                            </button>
+                            <button class="navigation-next js-custom-next">
+                                <i class="bi bi-arrow-right-short"></i>
+                            </button>
+                            <div class="swiper-wrapper">
+                                @foreach ($team as $item)
+                                    <div class="swiper-slide">
+                                        <div class="person">
+                                            <figure>
+                                                <img src="{{ Storage::url($item->image) }}" height="450"
+                                                    alt="Image" class="w-100 object-fit-cover">
+                                                <div class="social">
+                                                    @if ($item->linkedin != null)
+                                                        <a href="{{ $item->linkedin }}" target="_blank"><span
+                                                                class="bi bi-linkedin"></span></a>
+                                                    @endif
+                                                    @if ($item->linkedin != null)
+                                                        <a href="{{ $item->instagram }}" target="_blank"><span
+                                                                class="bi bi-instagram"></span></a>
+                                                    @endif
+                                                    @if ($item->email != null)
+                                                        <a href="{{ $item->email }}" target="_blank"><span
+                                                                class="bi bi-google"></span></a>
+                                                    @endif
+                                                </div>
+                                            </figure>
+                                            <div class="person-contents">
+                                                <h3>{{ $item->name }}</h3>
+                                                <span class="position">{{ $item->position }}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </figure>
-                                <div class="person-contents">
-                                    <h3>Edi Tinambunan</h3>
-                                    <span class="position">Chief Executive Officer</span>
-                                </div>
+                                @endforeach
+                                <!-- <div class="swiper-pagination"></div> -->
                             </div>
                         </div>
-
-                        <div class="col-lg-3 col-6 mb-4" data-aos="fade-up">
-                            <div class="person">
-                                <figure>
-                                    <img src="assets-user/img/team/carlos.jpeg" height="300" alt="Image"
-                                        class="w-100 object-fit-cover">
-                                    <div class="social">
-                                        <a href="https://www.linkedin.com/in/carlos-matias-silitonga-b68a231a2/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                                            target="_blank"><span class="bi bi-linkedin"></span></a>
-                                        <a href="https://www.instagram.com/carlosmatiaas/?igsh=MTV1cXB2bGhwa3VpYg%3D%3D"
-                                            target="_blank"><span class="bi bi-instagram"></span></a>
-                                        <a href="#" target="_blank"><span class="bi bi-google"></span></a>
-                                    </div>
-                                </figure>
-                                <div class="person-contents">
-                                    <h3>Carlos Matias</h3>
-                                    <span class="position">Chief Business Development Officer</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6 mb-4" data-aos="fade-up">
-                            <div class="person">
-                                <figure>
-                                    <img src="assets-user/img/team/ray.jpeg" height="300" alt="Image"
-                                        class="w-100 object-fit-cover">
-                                    <div class="social">
-                                        <a href="https://www.linkedin.com/in/ns-ray-parulian-s-kep-cwcca-8a08091b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                                            target="_blank"><span class="bi bi-linkedin"></span></a>
-                                        <a href="https://www.instagram.com/rayparulian/profilecard/?igsh=MW4zYTZzd2o4dHhvMg=="
-                                            target="_blank"><span class="bi bi-instagram"></span></a>
-                                        <a href="#" target="_blank"><span class="bi bi-google"></span></a>
-                                    </div>
-                                </figure>
-                                <div class="person-contents">
-                                    <h3>Ray Parulian</h3>
-                                    <span class="position">Chief Operational Officer</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6 mb-4" data-aos="fade-up">
-                            <div class="person">
-                                <figure>
-                                    <img src="assets-user/img/team/ayu.png" height="300" alt="Image"
-                                        class="w-100 object-fit-cover">
-                                    <div class="social">
-                                        <a href="https://id.linkedin.com/in/sri-ayu-wulandari-072653210"
-                                            target="_blank"><span class="bi bi-linkedin"></span></a>
-                                        <a href="https://www.instagram.com/yuwe___/" target="_blank"><span
-                                                class="bi bi-instagram"></span></a>
-                                        <a href="#" target="_blank"><span class="bi bi-google"></span></a>
-                                    </div>
-                                </figure>
-                                <div class="person-contents">
-                                    <h3>Ayu Wulandari</h3>
-                                    <span class="position">Chief Marketing Officer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-between mb-3" data-aos="fade-up">
-                        <div class="col-lg-3 col-6 mb-4" data-aos="fade-up">
-                            <div class="person">
-                                <figure>
-                                    <img src="assets-user/img/team/faris.png" height="300" alt="Image"
-                                        class="w-100 object-fit-cover">
-                                    <div class="social">
-                                        <a href="https://www.linkedin.com/in/faris-soamole-0184b8267/?originalSubdomain=id"
-                                            target="_blank"><span class="bi bi-linkedin"></span></a>
-                                        <a href="https://www.instagram.com/piasua24/" target="_blank"><span
-                                                class="bi bi-instagram"></span></a>
-                                        <a href="#" target="_blank"><span class="bi bi-google"></span></a>
-                                    </div>
-                                </figure>
-                                <div class="person-contents">
-                                    <h3>Faris Soamole</h3>
-                                    <span class="position">Chief Legal Officer</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6 mb-4" data-aos="fade-up">
-                            <div class="person">
-                                <figure>
-                                    <img src="assets-user/img/team/gabriel.jpeg" height="300" alt="Image"
-                                        class="w-100 object-fit-cover">
-                                    <div class="social">
-                                        <a href="https://www.linkedin.com/in/gian-gabriel-830368140/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                                            target="_blank"><span class="bi bi-linkedin"></span></a>
-                                        <a href="https://www.instagram.com/gabisblessing" target="_blank"><span
-                                                class="bi bi-instagram"></span></a>
-                                        <a href="#" target="_blank"><span class="bi bi-google"></span></a>
-                                    </div>
-                                </figure>
-                                <div class="person-contents">
-                                    <h3>Gian Gabriel</h3>
-                                    <span class="position">Chief Technology Officer</span>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -552,38 +501,6 @@
                     frameborder="0" allowfullscreen=""></iframe>
             </div>
         </section>
-
-        <!-- Call To Action Section -->
-        <!-- <section id="call-to-action" class="call-to-action section light-background">
-
-      <div class="content">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <h3>Subscribe To Our Newsletter</h3>
-              <p class="opacity-50">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt, reprehenderit!
-              </p>
-            </div>
-            <div class="col-lg-6">
-              <form action="forms/newsletter.php" class="form-subscribe php-email-form">
-                <div class="form-group d-flex align-items-stretch">
-                  <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail">
-                  <input type="submit" class="btn btn-secondary px-4" value="Subcribe">
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Your subscription request has been sent. Thank you!
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>/Call To Action Section -->
-
     </main>
 
     <footer id="footer" class="footer dark-background">

@@ -60,3 +60,9 @@ Route::prefix('about')->group(function () {
     Route::post('/add', [App\Http\Controllers\AboutController::class, 'storeAbout'])->name('addAbout');
 });
 
+Route::prefix('team')->group(function () {
+    Route::get('/', [App\Http\Controllers\TeamController::class, 'indexTeam'])->name('indexTeam');
+    Route::post('/add', [App\Http\Controllers\TeamController::class, 'storeTeam'])->name('addTeam');
+    Route::post('/update/{id}', [App\Http\Controllers\TeamController::class, 'update'])->name('updateTeam');
+    Route::delete('/delete/{id}', [App\Http\Controllers\TeamController::class, 'destroy'])->name('deleteTeam');
+});
