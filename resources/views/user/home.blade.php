@@ -653,11 +653,9 @@
 
     <!-- Scroll Top -->
     <div class="whatsapp-float cursor-pointer">
-        <!-- <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" title="Contact Us"> -->
         <div data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="bi bi-whatsapp text-white fs-4"></i>
         </div>
-        <!-- </a> -->
     </div>
     <div class="message-float bg-light py-1 rounded px-3 border text-black">
         <span class="fw-bold">Contact Us</span>
@@ -676,38 +674,25 @@
                 </div>
                 <div class="modal-body bg-light">
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="box-contact bg-white border p-3 rounded d-flex flex-md-column text-md-center">
-                                <div class="image-contact mt-0 mt-md-3 me-3 me-md-0">
-                                    <img src="assets-user/img/team/gabriel.jpeg" height="200" alt="Image"
-                                        class="w-50 object-fit-cover rounded">
-                                </div>
-                                <div class="desc-contact mt-0 mt-md-4 mb-md-3">
-                                    <h6 class="fw-bold">Gian Gabriel</h6>
-                                    <h6>CTO</h6>
-                                    <a href="https://wa.me/6287889505330" target="_blank" rel="noopener">
-                                        <button class="btn btn-success"><i class="bi bi-whatsapp text-white"></i>
-                                            Contact Now</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="box-contact bg-white border p-3 rounded d-flex flex-md-column text-md-center">
-                                <div class="image-contact mt-0 mt-md-3 me-3 me-md-0">
-                                    <img src="assets-user/img/team/ayu.png" height="200" alt="Image"
-                                        class="w-50 object-fit-cover rounded">
-                                </div>
-                                <div class="desc-contact mt-0 mt-md-4 mb-md-3">
-                                    <h6 class="fw-bold">Ayu Wulandari</h6>
-                                    <h6>CMO</h6>
-                                    <a href="https://wa.me/6282324022654" target="_blank" rel="noopener">
-                                        <button class="btn btn-success"><i class="bi bi-whatsapp text-white"></i>
-                                            Contact Now</button>
-                                    </a>
+                        @foreach ($contact as $item)
+                            <div class="col-md-6 mb-3">
+                                <div
+                                    class="box-contact bg-white border p-3 rounded d-flex flex-md-column text-md-center">
+                                    <div class="image-contact mt-0 mt-md-3 me-3 me-md-0">
+                                        <img src="{{ Storage::url($item->image) }}" height="350" alt="Image"
+                                            class="w-100 object-fit-cover rounded">
+                                    </div>
+                                    <div class="desc-contact mt-0 mt-md-4 mb-md-3">
+                                        <h6 class="fw-bold">{{ $item->name }}</h6>
+                                        <h6>{{ $item->title }}</h6>
+                                        <a href="{{ $item->contact_link }}" target="_blank" rel="noopener">
+                                            <button class="btn btn-success"><i class="bi bi-whatsapp text-white"></i>
+                                                Contact Now</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

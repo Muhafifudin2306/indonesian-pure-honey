@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Header;
 use App\Models\SectionOne;
 use App\Models\Seo;
@@ -18,11 +19,14 @@ class LandingPageController extends Controller
         $headerBackground = Header::where('section', 'background')->first()->content ?? null;
         
         $one = SectionOne::latest()->get();
+
+        $contact = Contact::latest()->get();
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
             'headerLogo', 'headerBackground',
-            'one'
+            'one',
+            'contact'
         ));
     }
 }

@@ -41,3 +41,10 @@ Route::prefix('header')->group(function () {
     Route::post('/add', [App\Http\Controllers\HeaderController::class, 'storeHeader'])->name('addHeader');
 });
 
+Route::prefix('contact')->group(function () {
+    Route::get('/', [App\Http\Controllers\ContactController::class, 'indexContact'])->name('indexContact');
+    Route::post('/add', [App\Http\Controllers\ContactController::class, 'storeContact'])->name('addContact');
+    Route::post('/update/{id}', [App\Http\Controllers\ContactController::class, 'update'])->name('updateContact');
+    Route::delete('/delete/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('deleteContact');
+});
+
