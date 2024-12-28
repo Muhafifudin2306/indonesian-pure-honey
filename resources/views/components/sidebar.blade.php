@@ -21,8 +21,8 @@
         </li>
 
         <!-- Layouts -->
-        <li
-            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }}"
+            {{ request()->routeIs('indexAbout') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -54,9 +54,9 @@
                         <div data-i18n="Without menu">Product</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                        <div data-i18n="Container">About Us</div>
+                <li class="menu-item {{ request()->routeIs('indexAbout') ? 'active' : '' }}">
+                    <a href="{{ route('indexAbout') }}" class="menu-link">
+                        <div data-i18n="Without menu">About Us</div>
                     </a>
                 </li>
                 <li class="menu-item">

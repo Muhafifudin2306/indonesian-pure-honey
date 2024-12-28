@@ -18,7 +18,7 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
-                        <label for="name">Ganti Logo Web</label>
+                        <label for="name">Change Logo</label>
                         <input type="file" id="logo" class="form-control" name="logo" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>

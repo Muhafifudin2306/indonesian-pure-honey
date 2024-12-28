@@ -55,3 +55,8 @@ Route::prefix('sponsor')->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\SponsorController::class, 'destroy'])->name('deleteSponsor');
 });
 
+Route::prefix('about')->group(function () {
+    Route::get('/', [App\Http\Controllers\AboutController::class, 'indexAbout'])->name('indexAbout');
+    Route::post('/add', [App\Http\Controllers\AboutController::class, 'storeAbout'])->name('addAbout');
+});
+

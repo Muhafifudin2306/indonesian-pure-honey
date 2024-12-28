@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Contact;
 use App\Models\Header;
 use App\Models\SectionOne;
@@ -23,7 +24,9 @@ class LandingPageController extends Controller
 
         $contact = Contact::latest()->get();
 
-
+        $aboutTitle = About::where('section', 'title')->first()->content ?? null;
+        $aboutDescription = About::where('section', 'description')->first()->content ?? null;
+        $aboutImage = About::where('section', 'image')->first()->content ?? null;
 
         $sponsor = Sponsor::latest()->get();
         
@@ -32,7 +35,8 @@ class LandingPageController extends Controller
             'headerLogo', 'headerBackground',
             'one',
             'contact',
-            'sponsor'
+            'sponsor',
+            'aboutTitle', 'aboutDescription', 'aboutImage'
         ));
     }
 }

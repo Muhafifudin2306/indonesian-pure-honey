@@ -157,22 +157,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 mb-4 mb-lg-0">
-                            <img src="assets-user/img/img_long_5.jpg" alt="Image"
+                            <img src="{{ Storage::url($aboutImage) }}" alt="Image"
                                 class="img-fluid img-overlap mt-1 pt-1" data-aos="zoom-out">
                         </div>
-                        <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-6 ml-auto" data-aos="fade-up" data-aos-delay="100">
                             <h3 class="content-subtitle text-white opacity-50">Why Choose Us</h3>
-                            <h2 class="content-title mb-4">
-                                Committed to <strong>quality and innovation</strong> in the Honey industry
+                            <h2 class="content-title mb-4" align="justify">
+                                <strong> {{ $aboutTitle }}</strong>
                             </h2>
                             <p class="opacity-50" align="justify">
-                                Indonesian Pure Honey is all about giving you a natural boost. Packed with pure
-                                goodness, our honey
-                                supports your immune system, digestion, and fights inflammation - all straight from
-                                nature. We're
-                                obsessed with quality, sustainability, and keeping it affordable, because we believe
-                                that taking care of
-                                your health should be simple, accessible, and real. Pure honey, pure vibes, pure you.
+                                {{ $aboutDescription }}
                             </p>
                         </div>
                     </div>
