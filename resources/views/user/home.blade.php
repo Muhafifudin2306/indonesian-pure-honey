@@ -93,33 +93,37 @@
                 <div class="container">
                     <div class="swiper init-swiper">
                         <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                },
-                "navigation": {
-                  "nextEl": ".js-custom-next",
-                  "prevEl": ".js-custom-prev"
-                },
-                "breakpoints": {
-                  "320": {
-                    "slidesPerView": 1,
-                    "spaceBetween": 40
-                  },
-                  "1200": {
-                    "slidesPerView": 3,
-                    "spaceBetween": 40
-                  }
-                }
-              }
-            </script>
+                    {
+                      "loop": true,
+                      "speed": 600,
+                      "autoplay": {
+                        "delay": 5000
+                      },
+                      "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                      },
+                      "navigation": {
+                        "nextEl": ".js-custom-next",
+                        "prevEl": ".js-custom-prev"
+                      },
+                      "breakpoints": {
+                        "320": {
+                          "slidesPerView": 1,
+                          "spaceBetween": 40
+                        },
+                        "770": {
+                          "slidesPerView": 2,
+                          "spaceBetween": 40
+                        },
+                        "1200": {
+                          "slidesPerView": 3,
+                          "spaceBetween": 40
+                        }
+                      }
+                    }
+                  </script>
                         <button class="navigation-prev js-custom-prev">
                             <i class="bi bi-arrow-left-short"></i>
                         </button>
@@ -127,25 +131,20 @@
                             <i class="bi bi-arrow-right-short"></i>
                         </button>
                         <div class="swiper-wrapper justify-content-lg-center">
-                            <div class="swiper-slide">
-                                <div class="service-item" data-bs-toggle="modal" data-bs-target="#acraModal">
-                                    <div class="service-item-contents">
-                                        <span class="service-item-category">Honey</span>
-                                        <h2 class="service-item-title">Trigona Honey</h2>
+                            @foreach ($product as $item)
+                                <div class="swiper-slide">
+                                    <div class="service-item" data-bs-toggle="modal"
+                                        data-bs-target="#{{ $item->id }}ProductModal">
+                                        <div class="service-item-contents">
+                                            <span class="service-item-category fw-bold">{{ $item->category }}</span>
+                                            <h2 class="service-item-title">{{ $item->product_name }}</h2>
+                                        </div>
+                                        <img src="{{ Storage::url($item->cover) }}" alt="Image"
+                                            class="img-custom">
                                     </div>
-                                    <img src="assets-user/img/img_sq_s1.jpg" alt="Image" class="img-custom">
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="service-item" data-bs-toggle="modal" data-bs-target="#accasiaModal">
-                                    <div class="service-item-contents">
-                                        <span class="service-item-category">Honey</span>
-                                        <h2 class="service-item-title">Acacia Honey</h2>
-                                    </div>
-                                    <img src="assets-user/img/img_sq_3.jpg" alt="Image" class="img-custom">
-                                </div>
-                            </div>
-                            <div class="swiper-pagination"></div>
+                            @endforeach
+                            <!-- <div class="swiper-pagination"></div> -->
                         </div>
                     </div>
                 </div>
@@ -541,21 +540,24 @@
     </div>
 
     <!-- Acra Honey -->
-    <div class="modal fade" id="acraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Authentic Trigona Honey</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <!-- <img src="assets-user/img/img_sq_4.jpg" alt="Image" class="img-custom"> -->
-                            <div class="services-2 section">
-                                <div class="services-carousel-wrap" data-aos="fade-up">
-                                    <div class="swiper init-swiper">
-                                        <script type="application/json" class="swiper-config">
+    @foreach ($product as $item)
+        <div class="modal fade" id="{{ $item->id }}ProductModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">{{ $item->product_name }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <!-- <img src="assets-user/img/img_sq_4.jpg" alt="Image" class="img-custom"> -->
+                                <div class="services-2 section">
+                                    <div class="services-carousel-wrap" data-aos="fade-up">
+                                        <div class="swiper init-swiper">
+                                            <script type="application/json" class="swiper-config">
                     {
                       "loop": true,
                       "speed": 600,
@@ -583,309 +585,86 @@
                       }
                     }
                   </script>
-                                        <button class="navigation-prev js-custom-prev">
-                                            <i class="bi bi-arrow-left-short"></i>
-                                        </button>
-                                        <button class="navigation-next js-custom-next">
-                                            <i class="bi bi-arrow-right-short"></i>
-                                        </button>
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <div class="service-item">
-                                                    <img src="assets-user/img/img_sq_s1.jpg" alt="Image"
-                                                        class="img-custom">
-                                                </div>
+                                            <button class="navigation-prev js-custom-prev">
+                                                <i class="bi bi-arrow-left-short"></i>
+                                            </button>
+                                            <button class="navigation-next js-custom-next">
+                                                <i class="bi bi-arrow-right-short"></i>
+                                            </button>
+                                            <div class="swiper-wrapper">
+                                                @foreach ($item->images as $image)
+                                                    <div class="swiper-slide">
+                                                        <div class="service-item">
+                                                            <img src="{{ Storage::url($image->image) }}"
+                                                                alt="Image" class="img-custom">
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                                <div class="swiper-pagination"></div>
                                             </div>
-                                            <div class="swiper-slide">
-                                                <div class="service-item">
-                                                    <img src="assets-user/img/img_sq_s1.jpg" alt="Image"
-                                                        class="img-custom">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="service-item">
-                                                    <img src="assets-user/img/img_sq_s1.jpg" alt="Image"
-                                                        class="img-custom">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-pagination"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <!-- Tabs Navigation -->
-                            <ul class="nav nav-tabs" id="productTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold active" id="specifications-trigona-tab"
-                                        data-bs-toggle="tab" data-bs-target="#specifications-trigona" type="button"
-                                        role="tab" aria-controls="specifications" aria-selected="true">
-                                        Specifications
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold" id="knowledge-trigona-tab"
-                                        data-bs-toggle="tab" data-bs-target="#knowledge-trigona" type="button"
-                                        role="tab" aria-controls="knowledge" aria-selected="false">
-                                        Knowledge
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold" id="health-trigona-tab" data-bs-toggle="tab"
-                                        data-bs-target="#health-trigona" type="button" role="tab"
-                                        aria-controls="knowledge" aria-selected="false">
-                                        Health Benefit
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold" id="advantage-trigona-tab"
-                                        data-bs-toggle="tab" data-bs-target="#advantage-trigona" type="button"
-                                        role="tab" aria-controls="knowledge" aria-selected="false">
-                                        Advantage
-                                    </button>
-                                </li>
-                            </ul>
+                            <div class="col-lg-8">
+                                <!-- Tabs Navigation -->
+                                <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link text-gold active"
+                                            id="specifications-{{ $item->id }}-tab" data-bs-toggle="tab"
+                                            data-bs-target="#specifications-{{ $item->id }}" type="button"
+                                            role="tab" aria-controls="specifications" aria-selected="true">
+                                            Specifications
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link text-gold" id="knowledge-{{ $item->id }}-tab"
+                                            data-bs-toggle="tab" data-bs-target="#knowledge-{{ $item->id }}"
+                                            type="button" role="tab" aria-controls="knowledge"
+                                            aria-selected="false">
+                                            Knowledge
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link text-gold" id="health-{{ $item->id }}-tab"
+                                            data-bs-toggle="tab" data-bs-target="#health-{{ $item->id }}"
+                                            type="button" role="tab" aria-controls="knowledge"
+                                            aria-selected="false">
+                                            Health Benefit
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link text-gold" id="advantage-{{ $item->id }}-tab"
+                                            data-bs-toggle="tab" data-bs-target="#advantage-{{ $item->id }}"
+                                            type="button" role="tab" aria-controls="knowledge"
+                                            aria-selected="false">
+                                            Advantage
+                                        </button>
+                                    </li>
+                                </ul>
 
-                            <!-- Tabs Content -->
-                            <div class="tab-content mt-4" id="productTabsContent">
-                                <!-- Product Specifications Tab -->
-                                <div class="tab-pane fade show active" id="specifications-trigona" role="tabpanel"
-                                    aria-labelledby="specifications-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Product Name:</h6>
-                                        <p>Authentic Trigona Honey / Kelulut Honey</p>
+                                <!-- Tabs Content -->
+                                <div class="tab-content mt-4" id="productTabsContent">
+                                    <!-- Product Specifications Tab -->
+                                    <div class="tab-pane fade show active" id="specifications-{{ $item->id }}"
+                                        role="tabpanel" aria-labelledby="specifications-tab">
+                                        {!! $item->specification !!}
                                     </div>
 
-                                    <div class="mb-4">
-                                        <h6>2. Bee Species:</h6>
-                                        <p>This honey is produced by Trigona bees (also known as stingless bees), which
-                                            are native to
-                                            tropical regions of Indonesia. These bees produce honey from nectar
-                                            collected from various local
-                                            plants and flowers.</p>
+                                    <!-- Product Knowledge Tab -->
+                                    <div class="tab-pane fade" id="knowledge-{{ $item->id }}" role="tabpanel"
+                                        aria-labelledby="knowledge-tab">
+                                        {!! $item->knowledge !!}
                                     </div>
 
-                                    <div class="mb-4">
-                                        <h6>3. Origin:</h6>
-                                        <p>Trigona honey is harvested from the lush tropical rainforests of Indonesia,
-                                            particularly from
-                                            regions such as Sumatra, Kalimantan, and Papua, where diverse flora provides
-                                            abundant nectar for
-                                            the bees.</p>
+                                    <div class="tab-pane fade" id="health-{{ $item->id }}" role="tabpanel"
+                                        aria-labelledby="health-tab">
+                                        {!! $item->benefit !!}
                                     </div>
 
-                                    <div class="mb-4">
-                                        <h6>4. Main Ingredients:</h6>
-                                        <p>100% pure honey harvested from Trigona bees, with no added fillers,
-                                            preservatives, or artificial
-                                            ingredients.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>5. Color:</h6>
-                                        <p>The color varies from golden yellow to dark amber, depending on the nectar
-                                            source the bees
-                                            collect.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>6. Texture:</h6>
-                                        <p>Trigona honey tends to be more fluid and thinner than regular honey, with a
-                                            slightly cloudy
-                                            appearance due to the natural enzymes and particles in the honey.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>7. Taste:</h6>
-                                        <p>The flavor profile is unique, with a slightly sand tangy taste that
-                                            differentiates it from
-                                            regular honey. This gives the honey a distinct, refreshing flavor.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>8. Aroma:</h6>
-                                        <p>The honey has a strong and aromatic fragrance, often floral with hints of
-                                            tropical plant scents,
-                                            reflecting the diverse biodiversity of Indonesia&rsquo;s forests.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>9. Nutritional Content:</h6>
-                                        <p>Rich in antioxidants, minerals (such as calcium, magnesium, and potassium),
-                                            and vitamins C and
-                                            B-complex. It also contains natural enzymes and amino acids that support
-                                            overall health.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>10. Moisture Content:</h6>
-                                        <p>Typically lower in moisture (below 18%), which contributes to a longer shelf
-                                            life and better
-                                            stability compared to other types of honey.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>11. Packaging Options:</h6>
-                                        <ul>
-                                            <li><strong>Retail:</strong> Glass or plastic bottles (100g, 250g, 500g).
-                                            </li>
-                                            <li><strong>Bulk:</strong> Available in larger containers such as jars,
-                                                drums, or jerrycans (1kg,
-                                                5kg, 10kg).</li>
-                                            <li><strong>Private Label:</strong> Custom packaging available based on
-                                                importers' branding needs.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <!-- Product Knowledge Tab -->
-                                <div class="tab-pane fade" id="knowledge-trigona" role="tabpanel"
-                                    aria-labelledby="knowledge-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Unique Bee Species - Trigona (Stingless Bees):</h6>
-                                        <p>Trigona honey is produced by stingless bees, which do not have stingers. This
-                                            makes the
-                                            harvesting process safer and less disruptive to the bee population. These
-                                            bees are crucial to the
-                                            ecosystem, and their honey is considered a natural, sustainable product.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Harvesting and Processing:</h6>
-                                        <p>Trigona honey is typically harvested from wild hives found in trees or
-                                            man-made hives placed in
-                                            forests. After careful collection, the honey is minimally processed to
-                                            preserve its natural
-                                            enzymes and nutrients, ensuring the highest quality.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Certifications and Standards:</h6>
-                                        <p>Indonesian Trigona honey meets international standards (HACCP, BPOM, Organic
-                                            certifications in
-                                            some cases), ensuring that the product is safe and of consistent quality for
-                                            global markets.</p>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="health-trigona" role="tabpanel"
-                                    aria-labelledby="health-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Rich in Antioxidants:</h6>
-                                        <p>Trigona honey is packed with antioxidants, such as flavonoids and phenolic
-                                            compounds, which help
-                                            neutralize free radicals in the body. These antioxidants support cellular
-                                            health and slow down the
-                                            aging process, reducing the risk of chronic diseases.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Boosts Immune System:</h6>
-                                        <p>The high levels of vitamin C, minerals, and natural antibacterial properties
-                                            in Trigona honey
-                                            help strengthen the immune system, protecting the body from infections and
-                                            boosting overall
-                                            health.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Supports Digestive Health:</h6>
-                                        <p>Trigona honey acts as a prebiotic, fostering the growth of beneficial gut
-                                            bacteria and promoting
-                                            digestive health. It helps improve gut function and alleviate digestive
-                                            issues like bloating and
-                                            discomfort.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>4. Antibacterial and Anti-inflammatory Properties:</h6>
-                                        <p>Trigona honey is naturally rich in antibacterial compounds, which help fight
-                                            infections, promote
-                                            faster wound healing, and reduce inflammation throughout the body.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>5. Relieves Respiratory Issues:</h6>
-                                        <p>Due to its soothing properties, Trigona honey is effective in relieving
-                                            symptoms of colds,
-                                            coughs, and sore throats. It helps to coat and protect the throat while
-                                            reducing irritation and
-                                            inflammation.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>6. Promotes Skin Health:</h6>
-                                        <p>The antibacterial and anti-inflammatory properties make Trigona honey
-                                            effective for treating skin
-                                            conditions like acne, eczema, and wounds. It also helps to moisturize the
-                                            skin, reduce aging
-                                            signs, and promote healthy, glowing skin.</p>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="advantage-trigona" role="tabpanel"
-                                    aria-labelledby="advantage-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Unique and High-Quality Honey:</h6>
-                                        <p>Trigona honey is distinctive for its tangy taste and floral aroma, offering a
-                                            unique flavor
-                                            profile compared to regular honey. This makes it an attractive product for
-                                            consumers seeking
-                                            premium, specialty honey.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Eco-Friendly and Sustainable Harvesting:</h6>
-                                        <p>Since Trigona bees do not sting, the harvesting process is more eco-friendly
-                                            and safer, helping
-                                            maintain healthy bee populations. The honey is also harvested with minimal
-                                            environmental impact,
-                                            supporting sustainable practices.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Rich Nutritional Value:</h6>
-                                        <p>Trigona honey is loaded with beneficial enzymes, amino acids, antioxidants,
-                                            and vitamins, making
-                                            it a superior choice for health-conscious consumers looking for natural
-                                            health benefits.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>4. Premium Product with Market Potential:</h6>
-                                        <p>Indonesian Trigona honey has strong market potential globally due to its
-                                            rarity, premium quality,
-                                            and unique health benefits. It stands out as a luxury product in the honey
-                                            market.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>5. International Certification:</h6>
-                                        <p>Indonesian Trigona honey meets global quality standards, making it suitable
-                                            for export to
-                                            international markets. Certifications such as organic, halal, and other
-                                            quality assurances are
-                                            appealing to global importers.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>6. Sustainable and Ethical Production:</h6>
-                                        <p>The honey is produced using sustainable methods that support local
-                                            communities of beekeepers and
-                                            ensure the preservation of Indonesia’s biodiversity. This makes it an
-                                            ethically sourced product.
-                                        </p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>7. Competitive Pricing:</h6>
-                                        <p>Despite its premium quality, Trigona honey is competitively priced compared
-                                            to other types of
-                                            honey in the international market, making it an attractive option for
-                                            importers looking for
-                                            high-quality products at affordable prices.</p>
+                                    <div class="tab-pane fade" id="advantage-{{ $item->id }}" role="tabpanel"
+                                        aria-labelledby="advantage-tab">
+                                        {!! $item->advantage !!}
                                     </div>
                                 </div>
                             </div>
@@ -894,357 +673,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Accasia Honey -->
-    <div class="modal fade" id="accasiaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Authentic Indonesian Acacia Honey</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <!-- <img src="assets-user/img/img_sq_4.jpg" alt="Image" class="img-custom"> -->
-                            <div class="services-2 section">
-                                <div class="services-carousel-wrap" data-aos="fade-up">
-                                    <div class="swiper init-swiper">
-                                        <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": "auto",
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "clickable": true
-                      },
-                      "navigation": {
-                        "nextEl": ".js-custom-next",
-                        "prevEl": ".js-custom-prev"
-                      },
-                      "breakpoints": {
-                        "320": {
-                          "slidesPerView": 1,
-                          "spaceBetween": 40
-                        },
-                        "1200": {
-                          "slidesPerView": 1,
-                          "spaceBetween": 40
-                        }
-                      }
-                    }
-                  </script>
-                                        <button class="navigation-prev js-custom-prev">
-                                            <i class="bi bi-arrow-left-short"></i>
-                                        </button>
-                                        <button class="navigation-next js-custom-next">
-                                            <i class="bi bi-arrow-right-short"></i>
-                                        </button>
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <div class="service-item">
-                                                    <img src="assets-user/img/img_sq_3.jpg" alt="Image"
-                                                        class="img-custom">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="service-item">
-                                                    <img src="assets-user/img/img_sq_1.jpg" alt="Image"
-                                                        class="img-custom">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="service-item">
-                                                    <img src="assets-user/img/img_sq_8.jpg" alt="Image"
-                                                        class="img-custom">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-pagination"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <!-- Tabs Navigation -->
-                            <ul class="nav nav-tabs" id="productTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold active" id="specifications-accasia-tab"
-                                        data-bs-toggle="tab" data-bs-target="#specifications-accasia" type="button"
-                                        role="tab" aria-controls="specifications" aria-selected="true">
-                                        Specifications
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold" id="knowledge-accasia-tab"
-                                        data-bs-toggle="tab" data-bs-target="#knowledge-accasia" type="button"
-                                        role="tab" aria-controls="knowledge" aria-selected="false">
-                                        Knowledge
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold" id="health-accasia-tab" data-bs-toggle="tab"
-                                        data-bs-target="#health-accasia" type="button" role="tab"
-                                        aria-controls="knowledge" aria-selected="false">
-                                        Health Benefit
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-gold" id="advantage-accasia-tab"
-                                        data-bs-toggle="tab" data-bs-target="#advantage-accasia" type="button"
-                                        role="tab" aria-controls="knowledge" aria-selected="false">
-                                        Advantage
-                                    </button>
-                                </li>
-                            </ul>
-
-                            <!-- Tabs Content -->
-                            <div class="tab-content mt-4" id="productTabsContent">
-                                <!-- Product Specifications Tab -->
-                                <div class="tab-pane fade show active" id="specifications-accasia" role="tabpanel"
-                                    aria-labelledby="specifications-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Product Name:</h6>
-                                        <p>Authentic Indonesian Acacia Honey</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Main Ingredient:</h6>
-                                        <ul>
-                                            <li>100% pure honey derived from the nectar of Acacia tree flowers grown in
-                                                Indonesia&rsquo;s
-                                                pristine forests.</li>
-                                            <li>Free from artificial additives, preservatives, and refined sugar.</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Origin:</h6>
-                                        <ul>
-                                            <li>Harvested from the biodiverse regions of Indonesia, including Riau,
-                                                Sumatra, and Kalimantan.
-                                            </li>
-                                            <li>Known for their abundant acacia plantations and unspoiled environment.
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>4. Color:</h6>
-                                        <p>Light golden to amber, with a bright, translucent appearance that indicates
-                                            purity.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>5. Texture:</h6>
-                                        <p>Smooth and slightly runny, making it easy to mix into drinks or food
-                                            preparations.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>6. Flavor Profile:</h6>
-                                        <p>Mildly sweet with a subtle floral note, making it versatile for various
-                                            culinary uses.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>7. Aroma:</h6>
-                                        <p>Delicate floral fragrance with a hint of freshness that reflects its natural
-                                            origins.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>8. Nutritional Content:</h6>
-                                        <ul>
-                                            <li>Rich in natural sugars, primarily fructose and glucose, providing a
-                                                healthy energy source.
-                                            </li>
-                                            <li>Contains essential vitamins (B-complex, C), minerals (calcium,
-                                                potassium, magnesium), and
-                                                antioxidants.</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>9. Moisture Content:</h6>
-                                        <p>Low (&lt;20%), ensuring extended shelf life and high stability.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>10. Packaging Options:</h6>
-                                        <ul>
-                                            <li><strong>Retail:</strong> Glass jars, squeeze bottles, or plastic
-                                                containers in sizes of 250g,
-                                                500g, or 1kg.</li>
-                                            <li><strong>Bulk:</strong> Food-grade drums (25kg&ndash;200kg) for
-                                                industrial or large-scale
-                                                buyers.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <!-- Product Knowledge Tab -->
-                                <div class="tab-pane fade" id="knowledge-accasia" role="tabpanel"
-                                    aria-labelledby="knowledge-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Clean and Pristine Environment:</h6>
-                                        <p>Harvested from regions such as Riau, Kalimantan, and Sumatra, Indonesia,
-                                            where acacia trees grow
-                                            in an unspoiled environment free from pollution, ensuring the purity and
-                                            quality of the honey.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Rich Biodiversity:</h6>
-                                        <p>The diverse flora and fauna in Indonesia’s rainforests create an ideal
-                                            environment for bees to
-                                            produce honey with a unique taste and aroma that reflects the natural beauty
-                                            of the region.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Sustainable and Ethical Beekeeping:</h6>
-                                        <p>Acacia honey is sourced through sustainable beekeeping practices that protect
-                                            local ecosystems
-                                            and support the livelihoods of beekeepers, making it a socially responsible
-                                            choice.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>Applications</h6>
-                                        <ul>
-                                            <li>Culinary: A natural sweetener for beverages, baked goods, desserts, and
-                                                gourmet dishes.</li>
-                                            <li>Health and Wellness: Used as a supplement for immunity, energy, and
-                                                digestive health.</li>
-                                            <li>Beauty and Skincare: A key ingredient in natural cosmetics and hydrating
-                                                skincare products.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="health-accasia" role="tabpanel"
-                                    aria-labelledby="health-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Natural Source of Energy:</h6>
-                                        <p>Acacia honey contains natural fructose and glucose, which are easily absorbed
-                                            by the body. It
-                                            provides an instant energy boost without causing excessive blood sugar
-                                            spikes, making it ideal for
-                                            both physical and mental activities.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Boosts Immune System:</h6>
-                                        <p>Rich in antioxidants like flavonoids and polyphenols, acacia honey helps
-                                            combat free radicals,
-                                            supports the immune system, and helps prevent chronic diseases such as heart
-                                            disease and cancer.
-                                        </p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Supports Digestive Health:</h6>
-                                        <p>Acacia honey acts as a natural prebiotic, promoting the growth of beneficial
-                                            bacteria in the gut,
-                                            improving gut health, and supporting a balanced digestive system.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>4. Antibacterial and Anti-inflammatory Properties:</h6>
-                                        <p>Contains natural enzymes and antibacterial compounds that help fight
-                                            infections, speed up wound
-                                            healing, and reduce inflammation, offering a natural remedy for various
-                                            ailments.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>5. Relieves Cough and Sore Throat:</h6>
-                                        <p>The smooth texture of acacia honey coats the throat, providing relief from
-                                            irritation and helping
-                                            to alleviate coughing and soothe sore throats naturally.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>6. Promotes Skin and Hair Health:</h6>
-                                        <p>Acacia honey hydrates and nourishes the skin, reducing signs of aging, and
-                                            improving skin
-                                            regeneration. For hair, it enhances shine, repairs damage, and strengthens
-                                            hair follicles for
-                                            healthier hair.</p>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="advantage-accasia" role="tabpanel"
-                                    aria-labelledby="advantage-tab">
-                                    <div class="mb-4">
-                                        <h6>1. Premium Quality:</h6>
-                                        <p>Acacia honey from Indonesia stands out for its smooth texture, mild flavor,
-                                            and light golden
-                                            color, making it a high-quality product suitable for discerning consumers.
-                                        </p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>2. Low Moisture Content:</h6>
-                                        <p>With less than 20% moisture, Indonesian acacia honey is more stable, has a
-                                            longer shelf life, and
-                                            is less prone to fermentation compared to other honey types.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>3. Mild and Pleasant Flavor:</h6>
-                                        <p>The mild sweetness and subtle floral taste of acacia honey make it versatile
-                                            and ideal for
-                                            various culinary uses, from beverages to desserts.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>4. Multi-functional:</h6>
-                                        <p>Indonesian acacia honey is versatile in its applications—used as a natural
-                                            sweetener, health
-                                            supplement, skincare ingredient, and even in traditional remedies.</p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>5. Certifications and Export-Ready:</h6>
-                                        <p>Produced according to international standards (HACCP, ISO, BPOM), ensuring
-                                            safety and consistency
-                                            for international markets, making it an attractive product for importers.
-                                        </p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>6. Sustainability:</h6>
-                                        <p>Acacia honey is produced using eco-friendly methods, promoting sustainability
-                                            and supporting
-                                            local communities, making it an attractive option for conscious consumers.
-                                        </p>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <h6>7. Competitive Pricing:</h6>
-                                        <p>Despite its premium quality, Indonesian acacia honey offers a competitive
-                                            price compared to honey
-                                            from other countries, making it an economically viable choice for importers
-                                            and consumers alike.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 
     <!-- Preloader -->
     <div id="preloader"></div>

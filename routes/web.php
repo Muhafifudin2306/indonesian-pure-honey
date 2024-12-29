@@ -73,3 +73,11 @@ Route::prefix('value')->group(function () {
     Route::post('/update/{id}', [App\Http\Controllers\ValueController::class, 'update'])->name('updateValue');
     Route::delete('/delete/{id}', [App\Http\Controllers\ValueController::class, 'destroy'])->name('deleteValue');
 });
+
+Route::prefix('product')->group(function () {
+    Route::get('/', [App\Http\Controllers\ProductController::class, 'indexProduct'])->name('indexProduct');
+    Route::post('/add', [App\Http\Controllers\ProductController::class, 'storeProduct'])->name('addProduct');
+    Route::post('/update/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('updateProduct');
+    Route::delete('/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('deleteProduct');
+    Route::delete('/image/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroyImage'])->name('deleteProduct');
+});

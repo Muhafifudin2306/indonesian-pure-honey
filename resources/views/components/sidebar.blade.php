@@ -22,7 +22,7 @@
 
         <!-- Layouts -->
         <li
-            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }}">
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -49,8 +49,8 @@
                         <div data-i18n="Without menu">Contact</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
+                <li class="menu-item {{ request()->routeIs('indexProduct') ? 'active' : '' }}">
+                    <a href="{{ route('indexProduct') }}" class="menu-link">
                         <div data-i18n="Without menu">Product</div>
                     </a>
                 </li>

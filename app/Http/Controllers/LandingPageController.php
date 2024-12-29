@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Header;
+use App\Models\Product;
 use App\Models\SectionOne;
 use App\Models\Seo;
 use App\Models\Sponsor;
@@ -35,6 +36,8 @@ class LandingPageController extends Controller
         $team = Team::latest()->get();
 
         $sponsor = Sponsor::latest()->get();
+
+        $product = Product::with('images')->latest()->get();
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
@@ -44,7 +47,8 @@ class LandingPageController extends Controller
             'value',
             'sponsor',
             'aboutTitle', 'aboutDescription', 'aboutImage',
-            'team'
+            'team',
+            'product'
         ));
     }
 }
