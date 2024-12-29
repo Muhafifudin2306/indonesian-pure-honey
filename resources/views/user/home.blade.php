@@ -377,9 +377,10 @@
             <div class="container">
 
                 <div class="row gy-5 mb-5">
-                    <div class="col-lg-8 position-relative" data-aos="fade-up">
-                        <img src="assets-user/img/img_sq_1.jpg" alt="Image" class="w-100" height="425">
-                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn">
+                    <div class="col-md-8 position-relative" data-aos="fade-up">
+                        <img src="{{ Storage::url($videoCover) }}" alt="Image" class="w-100 object-fit-cover"
+                            height="425">
+                        <a href="{{ Storage::url($videoLink) }}" class="glightbox pulsating-play-btn">
                             <span class="play"><i class="bi bi-play-fill"></i></span>
                         </a>
                     </div>
@@ -388,24 +389,18 @@
                         <div class="post-item position-relative h-100">
 
                             <div class="post-img position-relative overflow-hidden">
-                                <img src="assets-user/img/blog/blog-3.jpg" class="w-100" alt=""
+                                <img src="assets/img/blog/blog-3.jpg" class="w-100 object-fit-cover" alt=""
                                     height="220">
                                 <span class="post-date">September 05</span>
                             </div>
 
-                            <div class="post-content d-flex flex-column">
+                            <div class="post-content text-gold">
 
                                 <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
 
-                                <div class="meta d-flex align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-                                    </div>
-                                    <span class="px-3 text-black-50">/</span>
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                                    </div>
-                                </div>
+                                <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
+                                <span class="px-3 text-black-50">/</span>
+                                <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
 
                                 <hr>
 
@@ -553,38 +548,37 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-4">
-                                <!-- <img src="assets-user/img/img_sq_4.jpg" alt="Image" class="img-custom"> -->
                                 <div class="services-2 section">
                                     <div class="services-carousel-wrap" data-aos="fade-up">
                                         <div class="swiper init-swiper">
                                             <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": "auto",
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "clickable": true
-                      },
-                      "navigation": {
-                        "nextEl": ".js-custom-next",
-                        "prevEl": ".js-custom-prev"
-                      },
-                      "breakpoints": {
-                        "320": {
-                          "slidesPerView": 1,
-                          "spaceBetween": 40
-                        },
-                        "1200": {
-                          "slidesPerView": 1,
-                          "spaceBetween": 40
-                        }
-                      }
-                    }
-                  </script>
+                                                {
+                                                "loop": true,
+                                                "speed": 600,
+                                                "autoplay": {
+                                                    "delay": 5000
+                                                },
+                                                "slidesPerView": "auto",
+                                                "pagination": {
+                                                    "el": ".swiper-pagination",
+                                                    "clickable": true
+                                                },
+                                                "navigation": {
+                                                    "nextEl": ".js-custom-next",
+                                                    "prevEl": ".js-custom-prev"
+                                                },
+                                                "breakpoints": {
+                                                    "320": {
+                                                    "slidesPerView": 1,
+                                                    "spaceBetween": 40
+                                                    },
+                                                    "1200": {
+                                                    "slidesPerView": 1,
+                                                    "spaceBetween": 40
+                                                    }
+                                                }
+                                                }
+                                            </script>
                                             <button class="navigation-prev js-custom-prev">
                                                 <i class="bi bi-arrow-left-short"></i>
                                             </button>
@@ -679,14 +673,11 @@
     <div id="preloader"></div>
 
     <script>
-        // Select all navigation links
         const navLinks = document.querySelectorAll("nav ul li a");
 
-        // Function to handle active class
         function setActiveSection() {
             let currentSection = null;
 
-            // Loop through sections to find the one in the viewport
             document.querySelectorAll("section").forEach((section) => {
                 const rect = section.getBoundingClientRect();
                 if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
@@ -694,7 +685,6 @@
                 }
             });
 
-            // Remove active class from all links
             navLinks.forEach((link) => {
                 link.classList.remove("active");
                 if (link.getAttribute("href") === `#${currentSection}`) {
@@ -703,7 +693,6 @@
             });
         }
 
-        // Listen for scroll events
         window.addEventListener("scroll", setActiveSection);
     </script>
 

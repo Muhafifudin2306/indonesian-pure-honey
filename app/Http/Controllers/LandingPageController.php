@@ -11,6 +11,7 @@ use App\Models\Seo;
 use App\Models\Sponsor;
 use App\Models\Team;
 use App\Models\Value;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -38,6 +39,9 @@ class LandingPageController extends Controller
         $sponsor = Sponsor::latest()->get();
 
         $product = Product::with('images')->latest()->get();
+
+        $videoCover = Video::where('section', 'cover')->first()->content ?? null;
+        $videoLink = Video::where('section', 'link')->first()->content ?? null;
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
@@ -48,7 +52,8 @@ class LandingPageController extends Controller
             'sponsor',
             'aboutTitle', 'aboutDescription', 'aboutImage',
             'team',
-            'product'
+            'product',
+            'videoCover', 'videoLink'
         ));
     }
 }

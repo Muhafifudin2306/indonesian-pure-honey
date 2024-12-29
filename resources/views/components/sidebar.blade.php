@@ -22,7 +22,7 @@
 
         <!-- Layouts -->
         <li
-            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }}">
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }} {{ request()->routeIs('indexVideo') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -72,6 +72,26 @@
                 <li class="menu-item {{ request()->routeIs('indexSponsor') ? 'active' : '' }}">
                     <a href="{{ route('indexSponsor') }}" class="menu-link">
                         <div data-i18n="Without menu">Sponsor</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexVideo') ? 'active' : '' }}">
+                    <a href="{{ route('indexVideo') }}" class="menu-link">
+                        <div data-i18n="Without menu">Video</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexBlog') ? 'active' : '' }}">
+                    <a href="{{ route('indexBlog') }}" class="menu-link">
+                        <div data-i18n="Without menu">Blog</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexMap') ? 'active' : '' }}">
+                    <a href="{{ route('indexMap') }}" class="menu-link">
+                        <div data-i18n="Without menu">Map</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexFooter') ? 'active' : '' }}">
+                    <a href="{{ route('indexFooter') }}" class="menu-link">
+                        <div data-i18n="Without menu">Footer</div>
                     </a>
                 </li>
             </ul>

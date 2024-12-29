@@ -79,5 +79,27 @@ Route::prefix('product')->group(function () {
     Route::post('/add', [App\Http\Controllers\ProductController::class, 'storeProduct'])->name('addProduct');
     Route::post('/update/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('updateProduct');
     Route::delete('/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('deleteProduct');
-    Route::delete('/image/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroyImage'])->name('deleteProduct');
+    Route::delete('/image/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroyImage'])->name('deleteImageProduct');
+});
+
+Route::prefix('video')->group(function () {
+    Route::get('/', [App\Http\Controllers\VideoController::class, 'indexVideo'])->name('indexVideo');
+    Route::post('/add', [App\Http\Controllers\VideoController::class, 'storeVideo'])->name('addVideo');
+});
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', [App\Http\Controllers\BlogController::class, 'indexBlog'])->name('indexBlog');
+    Route::post('/add', [App\Http\Controllers\BlogController::class, 'storeBlog'])->name('addBlog');
+    Route::post('/update/{id}', [App\Http\Controllers\BlogController::class, 'update'])->name('updateBlog');
+    Route::delete('/delete/{id}', [App\Http\Controllers\BlogController::class, 'destroy'])->name('deleteBlog');
+});
+
+Route::prefix('map')->group(function () {
+    Route::get('/', [App\Http\Controllers\MapController::class, 'indexMap'])->name('indexMap');
+    Route::post('/add', [App\Http\Controllers\MapController::class, 'storeMap'])->name('addMap');
+});
+
+Route::prefix('foooter')->group(function () {
+    Route::get('/', [App\Http\Controllers\FooterController::class, 'indexFooter'])->name('indexFooter');
+    Route::post('/add', [App\Http\Controllers\FooterController::class, 'storeFooter'])->name('addFooter');
 });
