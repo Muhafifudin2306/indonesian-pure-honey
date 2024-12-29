@@ -188,92 +188,40 @@
                 </div>
             </div><!-- End Section Title -->
             <div class="container">
-                <div class="row">
-                    <div class="col-md-2" data-aos="fade-up">
-                        <div class="image-value text-center">
-                            <img height="150" width="150" class="object-fit-cover rounded-circle mb-3"
-                                src="./assets-user/value/value-1.jpg" alt="">
+                <div class="row d-md-none">
+                    @foreach ($value as $item)
+                        <div class="col-md-2" data-aos="fade-up">
+                            <div class="image-value text-center">
+                                <img height="150" width="150" class="object-fit-cover rounded-circle mb-3"
+                                    src="{{ Storage::url($item->image) }}" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4" data-aos="fade-up">
-                        <div class="desc-value">
-                            <h5 class="fw-bold">Health & Wellness</h5>
-                            <h6 align="justify" class="mb-5 pb-2">We prioritize the health and well-being of our
-                                customers by offering
-                                a
-                                natural product
-                                that supports immune system health, digestion, and inflammation reduction.
-                            </h6>
+                        <div class="col-md-4" data-aos="fade-up">
+                            <div class="desc-value">
+                                <h5 class="fw-bold">{{ $item->title }}</h5>
+                                <h6 align="justify" class="mb-5 pb-2">{{ $item->description }}
+                                </h6>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2" data-aos="fade-up">
-                        <div class="image-value text-center">
-                            <img height="150" width="150" class="object-fit-cover rounded-circle mb-3"
-                                src="./assets-user/value/value-2.jpg" alt="">
+                    @endforeach
+                </div>
+
+                <div class="row d-none d-md-flex">
+                    @foreach ($value as $item)
+                        <div class="col-md-2" data-aos="fade-up">
+                            <div class="image-value text-center">
+                                <img class="w-100 object-fit-cover rounded-circle p-3"
+                                    src="{{ Storage::url($item->image) }}" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4" data-aos="fade-up">
-                        <div class="desc-value">
-                            <h5 class="fw-bold">Quality & Purity</h5>
-                            <h6 align="justify" class="mb-5 pb-2">We are committed to providing only the purest,
-                                highest-quality
-                                honey,
-                                meticulously
-                                harvested with attention to detail for maximum effectiveness and flavor.
-                            </h6>
+                        <div class="col-md-4" data-aos="fade-up">
+                            <div class="desc-value">
+                                <h5 class="fw-bold">{{ $item->title }}</h5>
+                                <h6 align="justify" class="mb-5 pb-2">{{ $item->description }}
+                                </h6>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2" data-aos="fade-up">
-                        <div class="image-value text-center">
-                            <img height="150" width="150" class="object-fit-cover rounded-circle mb-3"
-                                src="./assets-user/value/value-3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4" data-aos="fade-up">
-                        <div class="desc-value">
-                            <h5 class="fw-bold">Sustainability & Nature </h5>
-                            <h6 align="justify" class="mb-5 pb-2">We respect and honor nature by offering products
-                                that are
-                                sustainably
-                                harvested,
-                                ensuring the environment and our beekeeping practices are in harmony.
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="col-md-2" data-aos="fade-up">
-                        <div class="image-value text-center">
-                            <img height="150" width="150" class="object-fit-cover rounded-circle mb-3"
-                                src="./assets-user/value/value-4.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4" data-aos="fade-up">
-                        <div class="desc-value">
-                            <h5 class="fw-bold">Affordability & Accessibility</h5>
-                            <h6 align="justify" class="mb-5 pb-2">We believe in making natural wellness accessible to
-                                all by offering
-                                high-quality honey
-                                at affordable prices.
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="col-md-2" data-aos="fade-up">
-                        <div class="image-value text-center">
-                            <img height="150" width="150" class="object-fit-cover rounded-circle mb-3"
-                                src="./assets-user/value/value-5.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4" data-aos="fade-up">
-                        <div class="desc-value">
-                            <h5 class="fw-bold">Customer-Centric Integrity</h5>
-                            <h6 align="justify" class="mb-5 pb-2">We believe in making natural wellness accessible to
-                                all by offering
-                                high-quality honey
-                                We place customer satisfaction and trust at the heart of everything we do, delivering a
-                                product that
-                                enhances their lifestyle and supports their health goals.
-                            </h6>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -347,7 +295,7 @@
                                                         <a href="{{ $item->linkedin }}" target="_blank"><span
                                                                 class="bi bi-linkedin"></span></a>
                                                     @endif
-                                                    @if ($item->linkedin != null)
+                                                    @if ($item->instagram != null)
                                                         <a href="{{ $item->instagram }}" target="_blank"><span
                                                                 class="bi bi-instagram"></span></a>
                                                     @endif

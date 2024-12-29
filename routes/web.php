@@ -66,3 +66,10 @@ Route::prefix('team')->group(function () {
     Route::post('/update/{id}', [App\Http\Controllers\TeamController::class, 'update'])->name('updateTeam');
     Route::delete('/delete/{id}', [App\Http\Controllers\TeamController::class, 'destroy'])->name('deleteTeam');
 });
+
+Route::prefix('value')->group(function () {
+    Route::get('/', [App\Http\Controllers\ValueController::class, 'indexValue'])->name('indexValue');
+    Route::post('/add', [App\Http\Controllers\ValueController::class, 'storeValue'])->name('addValue');
+    Route::post('/update/{id}', [App\Http\Controllers\ValueController::class, 'update'])->name('updateValue');
+    Route::delete('/delete/{id}', [App\Http\Controllers\ValueController::class, 'destroy'])->name('deleteValue');
+});

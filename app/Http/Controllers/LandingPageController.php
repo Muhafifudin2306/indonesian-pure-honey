@@ -9,6 +9,7 @@ use App\Models\SectionOne;
 use App\Models\Seo;
 use App\Models\Sponsor;
 use App\Models\Team;
+use App\Models\Value;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -25,6 +26,8 @@ class LandingPageController extends Controller
 
         $contact = Contact::latest()->get();
 
+        $value = Value::latest()->get();
+
         $aboutTitle = About::where('section', 'title')->first()->content ?? null;
         $aboutDescription = About::where('section', 'description')->first()->content ?? null;
         $aboutImage = About::where('section', 'image')->first()->content ?? null;
@@ -38,6 +41,7 @@ class LandingPageController extends Controller
             'headerLogo', 'headerBackground',
             'one',
             'contact',
+            'value',
             'sponsor',
             'aboutTitle', 'aboutDescription', 'aboutImage',
             'team'
