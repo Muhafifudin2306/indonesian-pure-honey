@@ -387,20 +387,16 @@
 
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="post-item position-relative h-100">
-
                             <div class="post-img position-relative overflow-hidden">
-                                <img src="assets/img/blog/blog-3.jpg" class="w-100 object-fit-cover" alt=""
-                                    height="220">
-                                <span class="post-date">September 05</span>
+                                <img src="{{ Storage::url($blog->cover) }}" class="w-100 object-fit-cover"
+                                    alt="" height="220">
+                                <span class="post-date">{{ $blog->created_at->format('d F Y') }}</span>
                             </div>
-
                             <div class="post-content text-gold">
-
-                                <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
-
-                                <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
+                                <h3 class="post-title">{{ $blog->title }}</h3>
+                                <i class="bi bi-person"></i> <span class="ps-2">{{ $blog->writer }}</span>
                                 <span class="px-3 text-black-50">/</span>
-                                <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
+                                <i class="bi bi-folder2"></i> <span class="ps-2">{{ $blog->category }}</span>
 
                                 <hr>
 

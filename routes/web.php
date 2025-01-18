@@ -103,3 +103,4 @@ Route::prefix('foooter')->group(function () {
     Route::get('/', [App\Http\Controllers\FooterController::class, 'indexFooter'])->name('indexFooter');
     Route::post('/add', [App\Http\Controllers\FooterController::class, 'storeFooter'])->name('addFooter');
 });
+

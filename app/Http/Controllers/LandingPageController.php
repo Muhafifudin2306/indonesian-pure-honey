@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Header;
 use App\Models\Product;
@@ -42,6 +43,8 @@ class LandingPageController extends Controller
 
         $videoCover = Video::where('section', 'cover')->first()->content ?? null;
         $videoLink = Video::where('section', 'link')->first()->content ?? null;
+
+        $blog = Blog::first();
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
@@ -53,7 +56,8 @@ class LandingPageController extends Controller
             'aboutTitle', 'aboutDescription', 'aboutImage',
             'team',
             'product',
-            'videoCover', 'videoLink'
+            'videoCover', 'videoLink',
+            'blog'
         ));
     }
 }
