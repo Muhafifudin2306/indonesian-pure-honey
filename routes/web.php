@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index'])->name('landingPage');
+Route::get('blog-{slug}', [App\Http\Controllers\LandingPageController::class, 'detailBlog']);
+Route::get('list-blog', [App\Http\Controllers\LandingPageController::class, 'blogList']);
+
 
 Auth::routes();
 

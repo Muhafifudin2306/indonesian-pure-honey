@@ -1,49 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.front')
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+@section('seo')
     <title> {{ $seoTitle }} </title>
     <meta name="description" content="{{ $seoDescription }}">
     <meta name="keywords" content="{{ $seoKeyword }}">
-    <link href="assets-user/img/favicon.png" rel="icon">
-    <link href="assets-user/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-    <link href="assets-user/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets-user/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets-user/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets-user/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="assets-user/css/main.css" rel="stylesheet">
-</head>
+@endsection
 
-<body class="index-page">
-
+@section('content')
     <header id="header" class="header d-flex align-items-center fixed-top"
         style="background-image: url('{{ Storage::url($headerBackground) }}'); background-size: cover; background-repeat: no-repeat;">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{ url('/') }}" class="logo d-flex align-items-center">
                 <img src="{{ Storage::url($headerLogo) }}" alt="AgriCulture">
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="fw-bold">Home</a></li>
-                    <li><a href="#services-2" class="fw-bold">Our Product</a></li>
-                    <li><a href="#about" class="fw-bold">About Us</a></li>
-                    <li><a href="#recent-posts" class="fw-bold">Blog</a></li>
-                    <li><a href="#footer" class="fw-bold">Contact</a></li>
+                    <li><a href="{{ url('/') }}/#hero" class="fw-bold">Home</a></li>
+                    <li><a href="{{ url('/') }}/#services-2" class="fw-bold">Our Product</a></li>
+                    <li><a href="{{ url('/') }}/#about" class="fw-bold">About Us</a></li>
+                    <li><a href="{{ url('/') }}/#recent-posts" class="fw-bold">Blog</a></li>
+                    <li><a href="{{ url('/') }}/#footer" class="fw-bold">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -93,37 +71,37 @@
                 <div class="container">
                     <div class="swiper init-swiper">
                         <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      },
-                      "navigation": {
-                        "nextEl": ".js-custom-next",
-                        "prevEl": ".js-custom-prev"
-                      },
-                      "breakpoints": {
-                        "320": {
-                          "slidesPerView": 1,
-                          "spaceBetween": 40
-                        },
-                        "770": {
-                          "slidesPerView": 2,
-                          "spaceBetween": 40
-                        },
-                        "1200": {
-                          "slidesPerView": 3,
-                          "spaceBetween": 40
-                        }
-                      }
-                    }
-                  </script>
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".js-custom-next",
+                "prevEl": ".js-custom-prev"
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "770": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 40
+                }
+              }
+            }
+          </script>
                         <button class="navigation-prev js-custom-prev">
                             <i class="bi bi-arrow-left-short"></i>
                         </button>
@@ -139,8 +117,7 @@
                                             <span class="service-item-category fw-bold">{{ $item->category }}</span>
                                             <h2 class="service-item-title">{{ $item->product_name }}</h2>
                                         </div>
-                                        <img src="{{ Storage::url($item->cover) }}" alt="Image"
-                                            class="img-custom">
+                                        <img src="{{ Storage::url($item->cover) }}" alt="Image" class="img-custom">
                                     </div>
                                 </div>
                             @endforeach
@@ -245,37 +222,37 @@
                     <div class="container">
                         <div class="swiper init-swiper">
                             <script type="application/json" class="swiper-config">
-                        {
-                          "loop": true,
-                          "speed": 600,
-                          "autoplay": {
-                            "delay": 2000
-                          },
-                          "slidesPerView": "auto",
-                          "pagination": {
-                            "el": ".swiper-pagination",
-                            "clickable": true
-                          },
-                          "navigation": {
-                            "nextEl": ".js-custom-next",
-                            "prevEl": ".js-custom-prev"
-                          },
-                          "breakpoints": {
-                            "320": {
-                              "slidesPerView": 1,
-                              "spaceBetween": 40
-                            },
-                            "770": {
-                              "slidesPerView": 2,
-                              "spaceBetween": 40
-                            },
-                            "1200": {
-                              "slidesPerView": 4,
-                              "spaceBetween": 40
-                            }
-                          }
-                        }
-                      </script>
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 2000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".js-custom-next",
+                    "prevEl": ".js-custom-prev"
+                  },
+                  "breakpoints": {
+                    "320": {
+                      "slidesPerView": 1,
+                      "spaceBetween": 40
+                    },
+                    "770": {
+                      "slidesPerView": 2,
+                      "spaceBetween": 40
+                    },
+                    "1200": {
+                      "slidesPerView": 4,
+                      "spaceBetween": 40
+                    }
+                  }
+                }
+              </script>
                             <button class="navigation-prev js-custom-prev">
                                 <i class="bi bi-arrow-left-short"></i>
                             </button>
@@ -341,8 +318,8 @@
                 <div class="row">
                     @foreach ($sponsor as $item)
                         <div class="col-6 mb-3 col-md-3" data-aos="fade-up">
-                            <img class="w-100 object-fit-contain" height="150"
-                                src="{{ Storage::url($item->image) }}" alt="">
+                            <img class="w-100 object-fit-contain" height="150" src="{{ Storage::url($item->image) }}"
+                                alt="">
                         </div>
                     @endforeach
                 </div>
@@ -394,14 +371,19 @@
                             </div>
                             <div class="post-content text-gold">
                                 <h3 class="post-title">{{ $blog->title }}</h3>
-                                <i class="bi bi-person"></i> <span class="ps-2">{{ $blog->writer }}</span>
-                                <span class="px-3 text-black-50">/</span>
-                                <i class="bi bi-folder2"></i> <span class="ps-2">{{ $blog->category }}</span>
+                                <div class="person">
+                                    <i class="bi bi-person"></i> <span class="ps-2">{{ $blog->writer }}</span>
+                                </div>
+                                {{-- <span class="px-3 text-black-50">/</span> --}}
+                                <div class="tags">
+                                    <i class="bi bi-tags"></i> <span class="ps-2">{{ $blog->category }}</span>
+                                </div>
 
                                 <hr>
 
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                                        class="bi bi-arrow-right" data-aos="fade-up"></i></a>
+                                <a target="_blank" href="{{ url('blog-' . $blog->slug) }}"
+                                    class="readmore stretched-link"><span>Read
+                                        More</span><i class="bi bi-arrow-right" data-aos="fade-up"></i></a>
 
                             </div>
 
@@ -410,7 +392,7 @@
 
                 </div>
 
-                <a href="blog.html">
+                <a target="_blank" href="{{ url('list-blog') }}">
                     <p class="text-center">More Blog<i class="bi bi-arrow-right"></i></p>
                 </a>
 
@@ -495,8 +477,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -507,8 +488,7 @@
                     <div class="row">
                         @foreach ($contact as $item)
                             <div class="col-md-6 mb-3">
-                                <div
-                                    class="box-contact bg-white border p-3 rounded d-flex flex-md-column text-md-center">
+                                <div class="box-contact bg-white border p-3 rounded d-flex flex-md-column text-md-center">
                                     <div class="image-contact mt-0 mt-md-3 me-3 me-md-0">
                                         <img src="{{ Storage::url($item->image) }}" height="350" alt="Image"
                                             class="w-100 object-fit-cover rounded">
@@ -532,14 +512,13 @@
 
     <!-- Acra Honey -->
     @foreach ($product as $item)
-        <div class="modal fade" id="{{ $item->id }}ProductModal" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="{{ $item->id }}ProductModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">{{ $item->product_name }}</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
@@ -548,33 +527,33 @@
                                     <div class="services-carousel-wrap" data-aos="fade-up">
                                         <div class="swiper init-swiper">
                                             <script type="application/json" class="swiper-config">
-                                                {
-                                                "loop": true,
-                                                "speed": 600,
-                                                "autoplay": {
-                                                    "delay": 5000
-                                                },
-                                                "slidesPerView": "auto",
-                                                "pagination": {
-                                                    "el": ".swiper-pagination",
-                                                    "clickable": true
-                                                },
-                                                "navigation": {
-                                                    "nextEl": ".js-custom-next",
-                                                    "prevEl": ".js-custom-prev"
-                                                },
-                                                "breakpoints": {
-                                                    "320": {
-                                                    "slidesPerView": 1,
-                                                    "spaceBetween": 40
-                                                    },
-                                                    "1200": {
-                                                    "slidesPerView": 1,
-                                                    "spaceBetween": 40
-                                                    }
-                                                }
-                                                }
-                                            </script>
+                                        {
+                                        "loop": true,
+                                        "speed": 600,
+                                        "autoplay": {
+                                            "delay": 5000
+                                        },
+                                        "slidesPerView": "auto",
+                                        "pagination": {
+                                            "el": ".swiper-pagination",
+                                            "clickable": true
+                                        },
+                                        "navigation": {
+                                            "nextEl": ".js-custom-next",
+                                            "prevEl": ".js-custom-prev"
+                                        },
+                                        "breakpoints": {
+                                            "320": {
+                                            "slidesPerView": 1,
+                                            "spaceBetween": 40
+                                            },
+                                            "1200": {
+                                            "slidesPerView": 1,
+                                            "spaceBetween": 40
+                                            }
+                                        }
+                                        }
+                                    </script>
                                             <button class="navigation-prev js-custom-prev">
                                                 <i class="bi bi-arrow-left-short"></i>
                                             </button>
@@ -585,8 +564,8 @@
                                                 @foreach ($item->images as $image)
                                                     <div class="swiper-slide">
                                                         <div class="service-item">
-                                                            <img src="{{ Storage::url($image->image) }}"
-                                                                alt="Image" class="img-custom">
+                                                            <img src="{{ Storage::url($image->image) }}" alt="Image"
+                                                                class="img-custom">
                                                         </div>
                                                     </div>
                                                 @endforeach
@@ -664,47 +643,4 @@
             </div>
         </div>
     @endforeach
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <script>
-        const navLinks = document.querySelectorAll("nav ul li a");
-
-        function setActiveSection() {
-            let currentSection = null;
-
-            document.querySelectorAll("section").forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                    currentSection = section.id;
-                }
-            });
-
-            navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === `#${currentSection}`) {
-                    link.classList.add("active");
-                }
-            });
-        }
-
-        window.addEventListener("scroll", setActiveSection);
-    </script>
-
-
-    <!-- Vendor JS Files -->
-    <script src="assets-user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets-user/vendor/php-email-form/validate.js"></script>
-    <script src="assets-user/vendor/aos/aos.js"></script>
-    <script src="assets-user/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets-user/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets-user/js/mapdata.js"></script>
-    <script src="assets-user/js/worldmap.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets-user/js/main.js"></script>
-
-</body>
-
-</html>
+@endsection

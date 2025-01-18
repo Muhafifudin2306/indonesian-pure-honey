@@ -44,7 +44,7 @@ class LandingPageController extends Controller
         $videoCover = Video::where('section', 'cover')->first()->content ?? null;
         $videoLink = Video::where('section', 'link')->first()->content ?? null;
 
-        $blog = Blog::first();
+        $blog = Blog::latest()->first();
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
@@ -59,5 +59,33 @@ class LandingPageController extends Controller
             'videoCover', 'videoLink',
             'blog'
         ));
+    }
+
+    public function detailBlog($slug)
+    {
+        $headerLogo = Header::where('section', 'logo')->first()->content ?? null;
+        $headerBackground = Header::where('section', 'background')->first()->content ?? null;
+        
+        $seoTitle = Seo::where('section', 'title')->first()->content ?? null;
+        $seoDescription = Seo::where('section', 'description')->first()->content ?? null;
+        $seoKeyword = Seo::where('section', 'keyword')->first()->content ?? null;
+        
+        $blog = Blog::where('slug', $slug)->first();
+
+        $blogList = Blog::latest()->get();
+        return view('user.blog.detail', compact('headerLogo', 'headerBackground','seoTitle', 'seoDescription', 'seoKeyword', 'blog', 'blogList'));
+    }
+
+    public function blogList()
+    {
+        $headerLogo = Header::where('section', 'logo')->first()->content ?? null;
+        $headerBackground = Header::where('section', 'background')->first()->content ?? null;
+        
+        $seoTitle = Seo::where('section', 'title')->first()->content ?? null;
+        $seoDescription = Seo::where('section', 'description')->first()->content ?? null;
+        $seoKeyword = Seo::where('section', 'keyword')->first()->content ?? null;
+
+        $blogList = Blog::latest()->get();
+        return view('user.blog.list', compact('headerLogo', 'headerBackground','seoTitle', 'seoDescription', 'seoKeyword', 'blogList'));
     }
 }
