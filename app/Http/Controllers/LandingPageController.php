@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Header;
+use App\Models\Location;
 use App\Models\Product;
 use App\Models\SectionOne;
 use App\Models\Seo;
@@ -44,6 +45,10 @@ class LandingPageController extends Controller
         $videoCover = Video::where('section', 'cover')->first()->content ?? null;
         $videoLink = Video::where('section', 'link')->first()->content ?? null;
 
+        $locationTitle = Location::where('section', 'title')->first()->content ?? null;
+        $locationLink = Location::where('section', 'gmaps_link')->first()->content ?? null;
+        $locationEmbed = Location::where('section', 'gmaps_embed')->first()->content ?? null;
+
         $blog = Blog::latest()->first();
         
         return view('user.home', compact(
@@ -57,7 +62,8 @@ class LandingPageController extends Controller
             'team',
             'product',
             'videoCover', 'videoLink',
-            'blog'
+            'blog',
+            'locationTitle', 'locationLink', 'locationEmbed',
         ));
     }
 

@@ -22,7 +22,7 @@
 
         <!-- Layouts -->
         <li
-            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }} {{ request()->routeIs('indexVideo') ? 'active' : '' }}  {{ request()->routeIs('indexBlog') ? 'active' : '' }}">
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }} {{ request()->routeIs('indexVideo') ? 'active' : '' }}  {{ request()->routeIs('indexBlog') ? 'active' : '' }} {{ request()->routeIs('indexLocation') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -84,8 +84,8 @@
                         <div data-i18n="Without menu">Blog</div>
                     </a>
                 </li>
-                <li class="menu-item {{ request()->routeIs('indexMap') ? 'active' : '' }}">
-                    <a href="{{ route('indexMap') }}" class="menu-link">
+                <li class="menu-item {{ request()->routeIs('indexLocation') ? 'active' : '' }}">
+                    <a href="{{ route('indexLocation') }}" class="menu-link">
                         <div data-i18n="Without menu">Map</div>
                     </a>
                 </li>

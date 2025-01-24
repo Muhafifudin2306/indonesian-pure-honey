@@ -407,18 +407,24 @@
                     <span class="text-gold-i">REACH</span>
                     US
                 </h2>
-                <div class="content">
-                    <div class="container">
-                        <div class="row">
-
+            </div>
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mb-3" data-aos="fade-up">
+                            <iframe style="width: 100%; height: 400px;" src="{{ $locationEmbed }}" frameborder="0"
+                                allowfullscreen=""></iframe>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up">
+                            <h4 class="fw-bold">Company Location</h4>
+                            <hr>
+                            <h5 class="mb-3">{{ $locationTitle }}</h5>
+                            <a href="{{ $locationLink }}">
+                                <p>Check on Maps<i class="bi bi-arrow-right"></i></p>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div><!-- End Section Title -->
-            <div class="container" data-aos="fade-up">
-                <iframe style="width: 100%; height: 400px;"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3965.858674568995!2d106.79704807316823!3d-6.282302461490149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1734765388004!5m2!1sid!2sid"
-                    frameborder="0" allowfullscreen=""></iframe>
             </div>
         </section>
     </main>

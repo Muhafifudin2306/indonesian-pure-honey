@@ -97,9 +97,9 @@ Route::prefix('blog')->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\BlogController::class, 'destroy'])->name('deleteBlog');
 });
 
-Route::prefix('map')->group(function () {
-    Route::get('/', [App\Http\Controllers\MapController::class, 'indexMap'])->name('indexMap');
-    Route::post('/add', [App\Http\Controllers\MapController::class, 'storeMap'])->name('addMap');
+Route::prefix('location')->group(function () {
+    Route::get('/', [App\Http\Controllers\LocationController::class, 'indexLocation'])->name('indexLocation');
+    Route::post('/add', [App\Http\Controllers\LocationController::class, 'storeLocation'])->name('addLocation');
 });
 
 Route::prefix('foooter')->group(function () {
