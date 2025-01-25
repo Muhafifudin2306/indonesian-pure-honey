@@ -430,40 +430,40 @@
     </main>
 
     <footer id="footer" class="footer dark-background">
-
         <div class="footer-top pb-2">
             <div class="container">
                 <h3 class="text-gold-i fw-bold mb-3">
-                    Indonesian Pure Honey
+                    {{ $company }}
                 </h3>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <a href="https://maps.app.goo.gl/7mSzPfzQdPWnVoVE8" class="fs-6 text-white">Cilandak Mansion,
-                            BDN 2 Street,
-                            Cipete,
-                            <br>South Jakarta, Indonesia 12430
+                        <a href="{{ $locationLink }}" class="fs-6 text-white">
+                            {{ $locationTitle }}
                         </a>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <div class="phone-1">
-                            <strong>Phone 1:</strong>
-                            <a class="text-white fs-6" href="https://wa.me/6287889505330" target="_blank">
-                                <span>+62 8788 9505 330</span></a>
-                        </div>
-                        <div class="phone-2">
-                            <strong>Phone 2:</strong>
-                            <a class="text-white fs-6" href="https://wa.me/6282324022654" target="_blank">
-                                <span>+62 823 2402
-                                    2654</span></a>
-                        </div>
-                        <p class="fs-6"><strong>Email:</strong> <span>info@example.com</span></p>
+                        @php
+                            $number = 0;
+                        @endphp
+                        @foreach ($contact as $item)
+                            <div class="phone-{{ $number++ }}">
+                                <strong>Phone {{ $number }}:</strong>
+                                <a class="text-white fs-6" href="{{ $item->contact_link }}" target="_blank">
+                                    <span>{{ $item->contact }}</span>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                     <div class="col-md-4 mb-4 footer-links">
                         <h4>Follow Us</h4>
-                        <a href="#" target="_blank" class="text-primary fs-3 me-2"> <span
-                                class="bi bi-linkedin"></span></a>
-                        <a href="#" target="_blank" class="text-danger fs-3"> <span
-                                class="bi bi-instagram"></span></a>
+                        @if ($instagram != null)
+                            <a href="{{ $instagram }}" target="_blank" class="text-danger fs-3"> <span
+                                    class="bi bi-instagram"></span></a>
+                        @endif
+                        @if ($linkedIn != null)
+                            <a href="{{ $linkedIn }}" target="_blank" class="text-primary fs-3"> <span
+                                    class="bi bi-linkedin"></span></a>
+                        @endif
                     </div>
                 </div>
             </div>

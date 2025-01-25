@@ -102,7 +102,7 @@ Route::prefix('location')->group(function () {
     Route::post('/add', [App\Http\Controllers\LocationController::class, 'storeLocation'])->name('addLocation');
 });
 
-Route::prefix('foooter')->group(function () {
+Route::prefix('footer')->group(function () {
     Route::get('/', [App\Http\Controllers\FooterController::class, 'indexFooter'])->name('indexFooter');
     Route::post('/add', [App\Http\Controllers\FooterController::class, 'storeFooter'])->name('addFooter');
 });

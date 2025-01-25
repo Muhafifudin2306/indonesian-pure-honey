@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\Contact;
+use App\Models\Footer;
 use App\Models\Header;
 use App\Models\Location;
 use App\Models\Product;
@@ -50,6 +51,10 @@ class LandingPageController extends Controller
         $locationEmbed = Location::where('section', 'gmaps_embed')->first()->content ?? null;
 
         $blog = Blog::latest()->first();
+
+        $company = Footer::where('section', 'company')->first()->content ?? null;
+        $instagram = Footer::where('section', 'instagram')->first()->content ?? null;
+        $linkedIn = Footer::where('section', 'linked_in')->first()->content ?? null;
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
@@ -64,6 +69,7 @@ class LandingPageController extends Controller
             'videoCover', 'videoLink',
             'blog',
             'locationTitle', 'locationLink', 'locationEmbed',
+            'company', 'instagram', 'linkedIn'
         ));
     }
 
