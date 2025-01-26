@@ -64,7 +64,8 @@
     <script src="assets-user/vendor/aos/aos.js"></script>
     <script src="assets-user/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets-user/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets-user/js/mapdata.js"></script>
+    {{-- <script src="assets-user/js/mapdata.js"></script> --}}
+    <x-map></x-map>
     <script src="assets-user/js/worldmap.js"></script>
 
 

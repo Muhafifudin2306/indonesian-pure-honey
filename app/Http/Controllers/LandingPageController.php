@@ -9,6 +9,7 @@ use App\Models\Footer;
 use App\Models\Header;
 use App\Models\Location;
 use App\Models\Product;
+use App\Models\Region;
 use App\Models\SectionOne;
 use App\Models\Seo;
 use App\Models\Sponsor;
@@ -99,5 +100,11 @@ class LandingPageController extends Controller
 
         $blogList = Blog::latest()->get();
         return view('user.blog.list', compact('headerLogo', 'headerBackground','seoTitle', 'seoDescription', 'seoKeyword', 'blogList'));
+    }
+
+    public function regionData(){
+        $region = Region::where('status','active')->select("name", "latitude", "longitude")->get();
+
+        return $region;
     }
 }

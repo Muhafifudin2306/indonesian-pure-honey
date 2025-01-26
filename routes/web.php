@@ -107,3 +107,14 @@ Route::prefix('footer')->group(function () {
     Route::post('/add', [App\Http\Controllers\FooterController::class, 'storeFooter'])->name('addFooter');
 });
 
+Route::prefix('region')->group(function () {
+    Route::get('/', [App\Http\Controllers\LandingPageController::class, 'regionData'])->name('regionData');
+});
+
+Route::prefix('export')->group(function () {
+    Route::get('/', [App\Http\Controllers\RegionController::class, 'indexRegion'])->name('indexRegion');
+    Route::post('/add', [App\Http\Controllers\RegionController::class, 'storeRegion'])->name('storeRegion');
+    Route::post('/update/{id}', [App\Http\Controllers\RegionController::class, 'updateRegion'])->name('updateRegion');
+    Route::delete('/delete/{id}', [App\Http\Controllers\RegionController::class, 'destroyRegion'])->name('deleteRegion');
+});
+
