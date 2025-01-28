@@ -118,3 +118,15 @@ Route::prefix('export')->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\RegionController::class, 'destroyRegion'])->name('deleteRegion');
 });
 
+Route::prefix('vision')->group(function () {
+    Route::get('/', [App\Http\Controllers\VisionController::class, 'indexVision'])->name('indexVision');
+    Route::post('/add', [App\Http\Controllers\VisionController::class, 'storeVision'])->name('addVision');
+});
+
+Route::prefix('mission')->group(function () {
+    Route::get('/', [App\Http\Controllers\MissionController::class, 'indexMission'])->name('indexMission');
+    Route::post('/add', [App\Http\Controllers\MissionController::class, 'storeMission'])->name('addMission');
+    Route::post('/update/{id}', [App\Http\Controllers\MissionController::class, 'update'])->name('updateMission');
+    Route::delete('/delete/{id}', [App\Http\Controllers\MissionController::class, 'destroy'])->name('deleteMission');
+});
+

@@ -202,6 +202,60 @@
             </div>
         </section>
 
+        <section class="vision">
+            <div class="content">
+                <div class="container">
+                    <div class="vision-tab mb-5">
+                        <h3 class="fw-bold text-center" data-aos="fade-up">
+                            <span class="text-gold-i">OUR</span>
+                            VISION
+                        </h3>
+                        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    {{ $vision }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blade Template -->
+                    <div class="mission-tab">
+                        <div class="mb-3">
+                            @foreach ($mission as $index => $mission)
+                                @if ($loop->iteration % 2 == 1)
+                                    <!-- Ganjil: Gambar di kanan -->
+                                    <div class="row mb-3">
+                                        <div class="col-md-4 pt-5" data-aos="fade-right">
+                                            <small class="text-gold-i fw-bold">MISSION {{ $loop->iteration }}</small>
+                                            <h4 class="fw-bold">{{ $mission['title'] }}</h4>
+                                            <p>{{ $mission['description'] }}</p>
+                                        </div>
+                                        <div class="col-md-8 p-5" data-aos="fade-right">
+                                            <img class="w-100 rounded" src="{{ Storage::url($mission['image']) }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                @else
+                                    <!-- Genap: Gambar di kiri -->
+                                    <div class="row mb-3 flex-column-reverse flex-lg-row">
+                                        <div class="col-md-8 p-5" data-aos="fade-left">
+                                            <img class="w-100 rounded" src="{{ Storage::url($mission['image']) }}"
+                                                alt="">
+                                        </div>
+                                        <div class="col-md-4 pt-5" data-aos="fade-left">
+                                            <small class="text-gold-i fw-bold">MISSION {{ $loop->iteration }}</small>
+                                            <h4 class="fw-bold">{{ $mission['title'] }}</h4>
+                                            <p>{{ $mission['description'] }}</p>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div><!-- End Section Title -->
+        </section>
+
         <!-- Team Section -->
         <section class="team-15 team section" id="team" data-aos="fade-up">
             <div class="container section-title">

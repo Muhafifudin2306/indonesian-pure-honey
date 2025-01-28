@@ -22,7 +22,7 @@
 
         <!-- Layouts -->
         <li
-            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }} {{ request()->routeIs('indexVideo') ? 'active' : '' }}  {{ request()->routeIs('indexBlog') ? 'active' : '' }} {{ request()->routeIs('indexLocation') ? 'active' : '' }} {{ request()->routeIs('indexFooter') ? 'active' : '' }} {{ request()->routeIs('indexRegion') ? 'active' : '' }}">
+            class="menu-item {{ request()->routeIs('indexOne') ? 'active' : '' }} {{ request()->routeIs('indexSeo') ? 'active' : '' }} {{ request()->routeIs('indexHeader') ? 'active' : '' }} {{ request()->routeIs('indexContact') ? 'active' : '' }} {{ request()->routeIs('indexSponsor') ? 'active' : '' }} {{ request()->routeIs('indexAbout') ? 'active' : '' }} {{ request()->routeIs('indexTeam') ? 'active' : '' }} {{ request()->routeIs('indexValue') ? 'active' : '' }} {{ request()->routeIs('indexProduct') ? 'active' : '' }} {{ request()->routeIs('indexVideo') ? 'active' : '' }}  {{ request()->routeIs('indexBlog') ? 'active' : '' }} {{ request()->routeIs('indexLocation') ? 'active' : '' }}  {{ request()->routeIs('indexVision') ? 'active' : '' }} {{ request()->routeIs('indexFooter') ? 'active' : '' }} {{ request()->routeIs('indexRegion') ? 'active' : '' }} {{ request()->routeIs('indexMission') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">CMS</div>
@@ -57,6 +57,16 @@
                 <li class="menu-item {{ request()->routeIs('indexAbout') ? 'active' : '' }}">
                     <a href="{{ route('indexAbout') }}" class="menu-link">
                         <div data-i18n="Without menu">About Us</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexVision') ? 'active' : '' }}">
+                    <a href="{{ route('indexVision') }}" class="menu-link">
+                        <div data-i18n="Without menu">Vision</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('indexMission') ? 'active' : '' }}">
+                    <a href="{{ route('indexMission') }}" class="menu-link">
+                        <div data-i18n="Without menu">Mission</div>
                     </a>
                 </li>
                 <li class="menu-item {{ request()->routeIs('indexValue') ? 'active' : '' }}">

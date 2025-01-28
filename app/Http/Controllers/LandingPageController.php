@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Footer;
 use App\Models\Header;
 use App\Models\Location;
+use App\Models\Mission;
 use App\Models\Product;
 use App\Models\Region;
 use App\Models\SectionOne;
@@ -16,6 +17,7 @@ use App\Models\Sponsor;
 use App\Models\Team;
 use App\Models\Value;
 use App\Models\Video;
+use App\Models\Vision;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -56,6 +58,10 @@ class LandingPageController extends Controller
         $company = Footer::where('section', 'company')->first()->content ?? null;
         $instagram = Footer::where('section', 'instagram')->first()->content ?? null;
         $linkedIn = Footer::where('section', 'linked_in')->first()->content ?? null;
+
+        $vision = Vision::where('section', 'vision')->first()->content ?? null;
+
+        $mission = Mission::latest()->get();
         
         return view('user.home', compact(
             'seoTitle', 'seoDescription', 'seoKeyword', 
@@ -70,7 +76,9 @@ class LandingPageController extends Controller
             'videoCover', 'videoLink',
             'blog',
             'locationTitle', 'locationLink', 'locationEmbed',
-            'company', 'instagram', 'linkedIn'
+            'company', 'instagram', 'linkedIn',
+            'vision',
+            'mission'
         ));
     }
 
